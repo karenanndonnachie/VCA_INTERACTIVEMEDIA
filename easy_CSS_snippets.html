@@ -39,6 +39,7 @@
             align-items: center;
             cursor: move;
             text-align:center;
+            cursor: move;
         }
 
 
@@ -149,44 +150,14 @@
             }
         }
     </style>
-    <script>
-    let draggedElement;
-    let initialX;
-    let initialY;
-    let intervalId;
 
-    function dragStart(event) {
-        draggedElement = event.target;
-        initialX = event.clientX - draggedElement.offsetLeft;
-        initialY = event.clientY - draggedElement.offsetTop;
-        event.dataTransfer.setData("text/plain", ""); // Required for Firefox
-
-        intervalId = setInterval(updatePosition, 500); // Update position every half second
-    }
-
-    function dragEnd(event) {
-        event.preventDefault();
-        clearInterval(intervalId); // Stop updating position
-        const newX = event.clientX - initialX;
-        const newY = event.clientY - initialY;
-        draggedElement.style.left = newX + "px";
-        draggedElement.style.top = newY + "px";
-    }
-
-    function updatePosition() {
-        const newX = event.clientX - initialX;
-        const newY = event.clientY - initialY;
-        draggedElement.style.left = newX + "px";
-        draggedElement.style.top = newY + "px";
-    }
-</script>
 </head>
 <body>
 <section class="striped-background">
     <div class="circle">
         Circle
     </div>
-    <div class="square" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+    <div id="drag" class="square">
         Draggable Square
     </div>
 
@@ -234,6 +205,49 @@
             </figure>
         </div>
     </div>
+    <script>
+   dragElement(document.getElementById("drag"));
 
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
 </body>
 </html>
