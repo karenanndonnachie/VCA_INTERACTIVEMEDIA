@@ -30,4 +30,6 @@ _____________________________________
 Any file that ends in '.md' will be interpreted through Github's own flavour of MarkDown (styling). You can see all the possibilities in the [Github "Mastering Markdown" wiki.](https://guides.github.com/features/mastering-markdown/)
 
 ## How do I make my repo visible as a website?
-You will need to have either readme.md or index.html files in each directory you want to be viewable. You will need to activate Github Pages to set your Repo/Project/Branch as a web directory (got to settings). If no index.html files are found in the folder, the readme.md will be used as a base page and will be styled with Github's own markdown (a type of CSS/styling).
+You will need to have either readme.md or index.html files in each directory you want to be viewable. <br/>
+If you wnat us to see the site you have designed as the default landing page of your repo or branch, then index.html (no capitals) must be the name of your file.
+You will need to activate [Github Pages to set your Repo/Project/Branch as a web directory](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) (got to settings). If no index.html files are found in the folder, the readme.md will be used as a base page and will be styled with Github's own markdown (a type of CSS/styling).
