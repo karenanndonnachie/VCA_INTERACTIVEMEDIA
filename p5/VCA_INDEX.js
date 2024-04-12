@@ -7,7 +7,8 @@ function setup() {
   fill(255);
   info=createP("'S' to save, 'SPACE' to clear");
   info.position(20, 20);
-  info.attribute('color', 'white');
+  info.style('color', 'white');
+  info.attribute('id', 'info');
 }
 
 function draw() {
