@@ -1,7 +1,7 @@
 # VCA_INTERACTIVEMEDIA
 VCA Interactive media 2024~>
-[Easy snippets](easy_CSS_snippets.html)
-
+[Easy snippets](easy_CSS_snippets.html)<br/>
+[See Easy Snippets as web page](karenanndonnachie.github.io//VCA_INTERACTIVEMEDIA/easy_CSS_snippets.html)
 _____________________________________
 ## <strong>Github FAQ</strong>
 
