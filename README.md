@@ -1,11 +1,12 @@
 # VCA_INTERACTIVEMEDIA
 VCA Interactive media 2024~><br/>
-<h2>Weeks 1~3 HTML/CSS</h2>
-[Easy snippets] (easy_CSS_snippets.html)<br/>
-[See Easy Snippets as web page] (https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/easy_CSS_snippets.html)<br/>
-<h2>Weeks 4~6 P5js & Javascript</h2>
-[P5](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/p5/)<br/>
-_____________________________________<br/>
+## Weeks 1~3 HTML/CSS
+[Easy snippets](easy_CSS_snippets.html)
+
+[See Easy Snippets as web page](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/easy_CSS_snippets.html)
+## Weeks 4~6 P5js & Javascript
+[P5](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/p5/)
+_____________________________________
 ## <strong>Github FAQ</strong>
 
 How do I create a GitHub repository?
