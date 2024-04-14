@@ -12,4 +12,8 @@ this sketch introduces the microphone as audio input, a sound analysis (bass, mi
 ## [Pointillism](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/karen_pointillism/)
 this sketch gets the color value of underlying picture and draws small and large dots (depending on mouseX value) at random positions. After some time the picture is visible.
 
+## [spinnyText](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/spinnyText/)
 
+## [Webcam with effects](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_Media_webcam/)
+
+## [Text responding to sound](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/TEXTSOUND/)
