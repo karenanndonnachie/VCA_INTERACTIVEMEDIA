@@ -17,3 +17,9 @@ this sketch gets the color value of underlying picture and draws small and large
 ## [Webcam with effects](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_Media_webcam/)
 
 ## [Text responding to sound](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/TEXTSOUND/)
+
+## [Sound Viz in circle with FFT sound analysis](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/mic_FFT_circle/)
+
+## [Doodle draw (also with 'save' and 'clear' functions)](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/doodle/)
+
+## [Grooovy sound ripples sketch](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_MEDIA_sound_circles/)
