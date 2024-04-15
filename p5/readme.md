@@ -14,6 +14,8 @@ this sketch gets the color value of underlying picture and draws small and large
 
 ## [spinnyText](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/spinnyText/)
 
+## [Jiggly Wiggly Letters](https://simandy.github.io/codewords/processing/wigglyRandomLetters/)
+
 ## [Webcam with effects](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_Media_webcam/)
 
 ## [Text responding to sound](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_MEDIA_TEXTSOUND/)
