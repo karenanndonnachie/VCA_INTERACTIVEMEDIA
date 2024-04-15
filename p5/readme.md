@@ -24,4 +24,4 @@ this sketch gets the color value of underlying picture and draws small and large
 
 ## [Grooovy sound ripples sketch](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_MEDIA_sound_circles/)
 
-## [AND HERE ARE SOME MORE (WITH CLICKABLE PICTURES)](https://github.com/Simandy/codewords/blob/master/processing/examples.md) 
+## [AND HERE ARE SOME MORE (WITH CLICKABLE PICTURES)](https://github.com/karenanndonnachie/Slave-To-The-Algorithm/tree/master/P5js)
