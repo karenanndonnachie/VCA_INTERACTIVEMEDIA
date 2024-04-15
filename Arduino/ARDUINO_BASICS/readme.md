@@ -19,4 +19,5 @@ How to choose the right Arduino?	https://learn.sparkfun.com/tutorials/choosing-a
 ### 1. [Push-button LED](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/Arduino/ARDUINO_BASICS/1.%20PUSH_BUTTTON_LED)
 ### 2. [POTENTIOMETER_LED](2.%20POTENTIOMETER_LED/)
 ### 3. [Blink without delay()](3.BLINK_STATE_NO_DELAY/)
-### 4. [Capacitive Touch](4.CAPACITIVE/)
+### 4. [Theremin](4.THEREMIN/)
+### etc...
