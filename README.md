@@ -12,6 +12,10 @@ VCA Interactive media 2024~><br/>
 ### HTML & CSS
 [Easy snippets](easy_CSS_snippets.html)
 
+## Research Journal Template
+### HTML & CSS & CSV (list of references)
+[Template V1 & V2](ResearchJournal/)
+
 [See Easy Snippets as web page](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/easy_CSS_snippets.html)
 
 _____________________________________
