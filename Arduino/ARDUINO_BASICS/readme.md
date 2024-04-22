@@ -14,7 +14,14 @@ How to choose the right Arduino?	https://learn.sparkfun.com/tutorials/choosing-a
 
 <img width="506" alt="Screenshot 2024-04-15 at 11 49 45" src="https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/assets/10482948/3f9c9877-f52a-49e9-86fe-209d91c7d10e">
 
-### to keep track of what our components can do, we are building a knowledge repository in this directory. See each folder for sample code, wiring image and build notes.
+# How do I make Arduino go?
+## Start by downloading the Arduino IDE (available at [arduino.cc](arduino.cc) for your laptop or desktop device. You need to plug in your Arduino via USB and choose the board "Arduino UNO" and the port (USB1211 or other for mac / Com Port3 or similar for windows). You will see already that the Arduino editing pane has two functions `void setup() {}` and `void loop() {}` the setup function is where you set variables and values including setting Arduino's pins as `INPUT` or `OUTPUT`.
+
+An `INPUT` in Arduino circuits can be the value read by a sensor or an interactive element such as a button or switch. `OUTPUT` refers to a component that receives a signal from Arduino such as an LED light, a motor or a Buzzer.
+
+Try opening an example sketch by going to the menu... File/Examples/Basic/Blink This sketch "Blink" doesn't need any extra components, it will literally make the onboard LED flash on for one second (1000 milliseconds) and then switch off for 1 second. The timing is set with the `delay()` function that temporarily stops the Arduino from looping. Have a read of the comments and the code. Then click on the `verify` button to check that the code is ok. If it all looks fine, upload the code to your Arduino with the `upload` function. You should see your board now flashes for one second, then pauses, then flashes.
+
+### To keep track of what our components can do, we are building a knowledge repository in this directory. See each folder for sample code, wiring image and build notes.
 
 ### 1. [Push-button LED](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/Arduino/ARDUINO_BASICS/1.%20PUSH_BUTTTON_LED)
 ### 2. [POTENTIOMETER_LED](2.%20POTENTIOMETER_LED/)
