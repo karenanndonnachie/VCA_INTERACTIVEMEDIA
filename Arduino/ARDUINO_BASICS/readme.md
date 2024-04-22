@@ -20,5 +20,5 @@ How to choose the right Arduino?	https://learn.sparkfun.com/tutorials/choosing-a
 ### 2. [POTENTIOMETER_LED](2.%20POTENTIOMETER_LED/)
 ### 3. [Blink without delay()](3.BLINK_STATE_NO_DELAY/)
 ### 4. [Theremin](4.THEREMIN/)
-### 5. [Ultrasonic Distance Snsor w/buzzer](5.ULTRASONIC_BUZZER/)
+### 5. [Ultrasonic Distance Sensor w/buzzer](5.ULTRASONIC_BUZZER/)
 ### etc...
