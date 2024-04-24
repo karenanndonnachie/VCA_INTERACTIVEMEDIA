@@ -6,7 +6,7 @@
 
 > + .html
 > + .otf (helveticaNow)
-> + .xls (or make a copy of [this google sheet file]()
+> + .xls (or make a copy of [this google sheet file](ocs.google.com/spreadsheets/d/1OnPXemVzbc5FnKnToEi3hYn6A86CaMvKoEEe35oF75Q/copy)
 
 #### SET UP YOUR DIRECTORY WITH THE SAME STRUCTURE
 
