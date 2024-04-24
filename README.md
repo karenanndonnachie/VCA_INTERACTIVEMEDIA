@@ -1,5 +1,6 @@
 # VCA_INTERACTIVEMEDIA
 VCA Interactive media 2024~><br/>
+
 ## Weeks 7~9 PHYSICAL COMPUTING
 ### Arduino & C++
 [Arduino SNIPPETS | CODE | DEMOS | BUILDS](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/Arduino/)
@@ -15,7 +16,7 @@ VCA Interactive media 2024~><br/>
 
 ## Research Journal Template
 ### HTML & CSS & CSV (list of references)
-[Template V1 & V2](ResearchJournal/)
+[Template for `WEB TO PRINT`](ResearchJournal/)
 
 
 _____________________________________
