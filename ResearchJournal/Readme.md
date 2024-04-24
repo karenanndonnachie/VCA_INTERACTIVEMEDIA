@@ -11,8 +11,10 @@
 #### SET UP YOUR DIRECTORY WITH THE SAME STRUCTURE
 
 #### FILL IN YOUR SPREADSHEET (GOOGLE SHEETS OR .xls)
+For each entry, the data needed = CSS_Class | Entry Title | BodyText | Image link(s) | Image Caption(s) | a link | keywords.
+Your imges can be local, or on the web
 
-#### DOWNLAD OR SAVE YOUR .xls file AS .csv TO THE SAME DIRECTORY
+#### DOWNLAD FROM SHEETS AS .csv OR SAVE YOUR .xls file AS .csv *TO THE SAME DIRECTORY AS YOUR .html*
 
 #### LAUNCH LIVE PREVIEW OF THE .html FILE
 
