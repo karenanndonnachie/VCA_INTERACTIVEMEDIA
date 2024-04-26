@@ -1,5 +1,6 @@
 # Interactive Media Research Journal
 ## (A.K.A. WWWayposts)
+(See Demo)[https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/ResearchJournal/researchJournal_template.html]
 
 ### USING THE TEMPLATE 
 #### YOU WILL NEED TO DOWNLOAD THE THREE FILES IN THIS DIRECTORY 
