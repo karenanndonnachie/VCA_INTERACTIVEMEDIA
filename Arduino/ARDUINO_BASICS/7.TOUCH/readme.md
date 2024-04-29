@@ -7,7 +7,7 @@ in this folder you will find a couple of different ways to build a touch circuit
 <p><a href="https://vimeo.com/697836123">Do touch! touch sensor with arduino &amp; resistors only</a></p>
 <a href="https://vimeo.com/697836123"><img src="videostill.jpg" width="480" /></a>
 <p>Build for the above video: <br/>
-<img src="touch_michelangelo_bb.png" width="480"/></p>
+<img src="touch_ARDUINO_bb.png" width="480"/></p>
 <p>Code for the above video [remember the CapacitiveSensor library is also required]:</p>
 <pre>
 /*
@@ -69,5 +69,5 @@ void loop() {
 </pre>
 
 ## Alternative build WITH MORE THAN ONE TOUCH SENSOR:
-<img src="Screen Shot 2022-04-08 at 12.03.39.JPG" width="640" /><br/>
+<img src="TOUCH_WIRING.jpg" width="640" /><br/>
 This build requires THIS [.ino code](CapacitiveSensorSketch.ino) in this folder!
