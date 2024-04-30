@@ -28,4 +28,9 @@ void loop() {
   delay(1000);                                            
 }
 </pre>
-Then using the SerialPort app, you can scan for your Arduino when it is connected (and pre-coded with the following:
+
+## Wire up the pot with Arduino GND to left of POT | CENTER PIN OF POT (signal) on pin A0 | 3.3V TO RIGHT PIN
+
+## Then using the SerialPort app, you can scan for your Arduino when it is connected (and pre-coded with the potentiometer code)
+FIND THE PORT AND USE THE PORT NUMBER /NAME IN YOUR P5JS SKETCH
+
