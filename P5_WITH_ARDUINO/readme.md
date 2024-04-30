@@ -11,7 +11,9 @@
 
 # CODE AN ARDUINO TO MAKE DATA
 ## Try the following code on your Arduino
-<pre>#### #include <Servo.h>
+<pre>#include </pre>
+<Servo.h>
+<pre>
 
 void setup() {
   Serial.begin(9600); // initialize serial communications
