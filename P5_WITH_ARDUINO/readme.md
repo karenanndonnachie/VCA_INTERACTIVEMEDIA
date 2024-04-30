@@ -11,12 +11,10 @@
 
 # CODE AN ARDUINO TO MAKE DATA
 ## Try the following code on your Arduino
-<pre>#include </pre>
-<Servo.h>
-<pre>
-
+<pre>#include &lt;Servo.h&gt;
 void setup() {
-  Serial.begin(9600); // initialize serial communications
+// initialize serial communications
+  Serial.begin(9600); 
 }
  
 void loop() {
