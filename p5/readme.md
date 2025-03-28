@@ -8,6 +8,8 @@ Additionally many files using sound / mic etc. will require the p5.sound.js libr
 
 ## [Mic_FFT_circleViz](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/mic_FFT_circle/index.html)
 this sketch introduces the microphone as audio input, a sound analysis (bass, mid, treble) and a circular visual representation of the sound as it comes in through the mic.
+## [KUSAMA POLKA PARTY](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/p5/INT_MEDIA_WK4_2025_polkaParty)
+![chrome-capture-2025-3-28](https://github.com/user-attachments/assets/733e68ac-bf96-4d13-9583-776cbd720a00)
 
 ## [Pointillism](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/karen_pointillism/)
 this sketch gets the color value of underlying picture and draws small and large dots (depending on mouseX value) at random positions. After some time the picture is visible.
