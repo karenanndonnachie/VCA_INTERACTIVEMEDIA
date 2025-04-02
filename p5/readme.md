@@ -12,7 +12,10 @@ this sketch introduces the microphone as audio input, a sound analysis (bass, mi
 ![chrome-capture-2025-3-28](https://github.com/user-attachments/assets/733e68ac-bf96-4d13-9583-776cbd720a00)
 
 ## [Pointillism](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/karen_pointillism/)
-this sketch gets the color value of underlying picture and draws small and large dots (depending on mouseX value) at random positions. After some time the picture is visible.
+this sketch gets the color value of underlying picture and draws small and large dots (depending on mouseX value) at random positions. After some time the picture is visible.<br><br>
+
+## [Face-Tracking & Sentiment Analysis](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_MEDIA_2025_FACETRACK/)
+This sketch will decipher expressions from your web-cam <br/><br>
 
 ## [spinnyText](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/spinnyText/)
 
