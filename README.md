@@ -17,7 +17,8 @@ VCA Interactive media 2024~><br/>
 
 # Research Journal Template
 ### HTML & CSS & CSV (list of references)
-[Template for `WEB TO PRINT`](ResearchJournal/)
+[Template for `WEB TO PRINT`](ResearchJournal/)<br/>
+[See The Demo HERE --> press CTRL+P or CMD+P to print to PDF](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/ResearchJournal/researchJournal_template_withCover.html)
 
 
 _____________________________________
