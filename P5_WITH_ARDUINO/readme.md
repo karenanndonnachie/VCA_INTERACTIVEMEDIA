@@ -1,20 +1,23 @@
 # HOW TO GET P5 TO PLAY WITH ARDUINO (OR ARDUINO TO EXTEND P5)
 
-## FIRST INSTALL THE APP P5 SERIAL CONTROL (MAC OR WINDOWS)
-[P5.SERIALCONTROL](https://github.com/p5-serial/p5.serialcontrol/releases/tag/0.1.2)
+## FIRST DOWNLOAD THE ZIP FILE AND UNPACK TO YOUR PROCESSING FOLDER (USUALLY IN YOUR DOCUMENTS)
+[ARDUINO<-->p5js](INT_MEDIA_2025_ARDUINO_SUPERSERIAL.zip)<br>
+### NOTE THAT YOUR P5 SKETCH HAS A LINK TO A CDN OF serial.js<br>
+(you can also find it in this directory and you can load it locally if you like)
 
-## THEN DOWNLOAD THE P5.SERIAL LIBRARY (ADD TO YOUR P5 SKETCH)
-[p5.serialserver library](https://github.com/p5-serial/p5.serialserver)
-<img width="456" alt="Screenshot 2024-04-30 at 16 25 56" src="https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/assets/10482948/0a5f6c01-a33f-4750-bc06-c5db5bd30d24">
+## THEN BUILD YOUR CIRCUIT & UPLOAD THE ARDUINO CODE TO YOUR ARDUINO
+<pre>Try hooking up an Arduino with a Potentiometer 
+    |=|    
+    |=|
+  ———————
+  |  |  |
+ GND A0 5V
+and on the Arduino load up this code (or similar):
+***************************
+//TO BE UPLOADED TO ARDUINO
 
-[more information on the p5js.org site](https://p5js.org/libraries/)
-
-# CODE AN ARDUINO TO MAKE DATA
-## Try the following code on your Arduino
-<pre>#include &lt;Servo.h&gt;
 void setup() {
-// initialize serial communications
-  Serial.begin(9600); 
+  Serial.begin(9600); // initialize serial communications
 }
  
 void loop() {
@@ -23,13 +26,12 @@ void loop() {
   // remap the pot value to fit in 1 byte:
   int mappedPot = map(potentiometer, 0, 1023, 0, 255); 
   // print it out the serial port:
-  Serial.write(mappedPot);                             
+  Serial.println(mappedPot);                             
   // slight delay to stabilize the ADC:
-  delay(1000);                                            
+  delay(50);                                            
 }
 </pre>
-
-## Wire up the pot with Arduino GND to left of POT | CENTER PIN OF POT (signal) on pin A0 | 3.3V TO RIGHT PIN
+***************************
 
 ## Then using the SerialPort app, you can scan for your Arduino when it is connected (and pre-coded with the potentiometer code)
 FIND THE PORT AND USE THE PORT NUMBER /NAME IN YOUR P5JS SKETCH
