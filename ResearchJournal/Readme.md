@@ -30,7 +30,7 @@ YOU CAN ADD THE LINK AS AN EXTRA REFERENCE IN YOUR FINAL PROJECT?FOLIO
 ### NOTES
 This template is quite customisable, each entry is a `section` at 100vh when viewed on a browser, so it makes a double page spread 'full page'.
 You have a div on the left and a div on the right.
-There are two possible css classes you can use from the template which effectively ONLY change the format of teh images on the left hand page.
+There are two possible css classes you can use from the template which effectively ONLY change the format of the images on the left hand page.
 (others you could request or make yourself)
 `left` will place a single image full page on the left hand page *THIS IS GOOD FOR POTRAIT ORIENTED CONTENT*
 `leftDoubleImage` will place two images stacked on the left hand page. *THIS IS GREAT FOR HORIZONTAL IMAGES* 
