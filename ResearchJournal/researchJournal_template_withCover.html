@@ -278,8 +278,7 @@
                         var h1 = $('<h1>').text(row['Title']);
                         var h2 = $('<h2>').text(row['Description']);
                         var p = $('<p>').text(row['BodyText']);
-                        var a = $('<a>').attr('href', '#').text(row['Link']);
-                        //var figure = $('<figure>');
+                        var a = $('<a>').attr('href', row['Link']).text(row['Link']);
                         var img = $('<img>').attr('src', row['ImageSrc']);
                         var img2 = $('<img>').attr('src', row['ImageSrc2']);
                         //var figcaption = $('<figcaption>').text(row['Caption'].'\n'.$row['Caption2']);
