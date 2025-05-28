@@ -17,8 +17,13 @@ myButton2.position(random(width), random(height));
 rectMode(CENTER);
 textAlign(CENTER, CENTER);
 myButton.mousePressed(spawn);
+myButton2.mousePressed(spawn);
+
 }
 function draw() {
+     if (frameCount%300 ==0){
+          spawn();
+     }
 }
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
