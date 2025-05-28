@@ -10,8 +10,10 @@
 function setup() {
 createCanvas(windowWidth, windowHeight);
 background("blue");
-let myButton=createButton("CLICK ME");
+let myButton=createButton("INTERACTIVE MEDIA");
 myButton.position(100, 100);
+let myButton2=createButton("CLICK ME");
+myButton2.position(random(width), random(height));
 rectMode(CENTER);
 textAlign(CENTER, CENTER);
 myButton.mousePressed(spawn);
