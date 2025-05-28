@@ -20,7 +20,7 @@ function windowResized(){
 }
 function spawn(){
   background(random(255), random(255), random(255));
-  let rotation=random[0, (random(-45, 45)];
+  let rotation=random[0, random(-45, 45)];
   let texts=["2025", "INTERACTIVE MEDIA", "G09.DIGITAL_HUB", "(NEAR THE LIBRARY)", "MAY 29", "4PM~6PM", "GRAPHIC DESIGN", "INTERACTIVE MEDIA", "SHOWCASE", "VCA", "SOUTHBANK"];
   let otherbutton =createButton(random(texts));
   otherbutton.position(random(width-100), random(height-100));
