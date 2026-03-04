@@ -1,19 +1,18 @@
 # VCA_INTERACTIVEMEDIA
-VCA Interactive media 2024~><br/>
-
-## Weeks 7~9 PHYSICAL COMPUTING
-### Arduino & C++
-[Arduino SNIPPETS | CODE | DEMOS | BUILDS](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/Arduino/)
-
-## Weeks 4~6 CREATIVE CODING
-### P5js & Javascript
-[P5js SNIPPETS | CODE | DEMOS](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/p5/)
+VCA Interactive media 2026~><br/>
 
 ## Weeks 1~3 WWWOT IS WWW
 ### HTML & CSS
 [Easy snippets](easy_CSS_snippets.html)
 [See Easy Snippets as web page](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/easy_CSS_snippets.html)
 
+## Weeks 3~5 CREATIVE CODING
+### WWW + P5js (Javascript)
+[P5js SNIPPETS | CODE | DEMOS](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/p5/)
+
+## Weeks 6~8 PHYSICAL COMPUTING
+### Arduino & C++
+[Arduino SNIPPETS | CODE | DEMOS | BUILDS](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/Arduino/)
 
 # Research Journal Template
 ### HTML & CSS & CSV (list of references)
