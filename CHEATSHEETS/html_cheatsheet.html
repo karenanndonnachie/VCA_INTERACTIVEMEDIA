@@ -3,239 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Breakpoint Tester - Interactive Media Tools</title>
+  <title>HTML Cheatsheet - Interactive Media 2026</title>
   <link rel="stylesheet" href="../styles/base.css">
   <style>
     body {
       background: var(--color-bg);
       color: var(--color-text);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      cursor: none;
     }
 
     header {
       background: var(--color-subtle);
       color: var(--color-text);
-      padding: 1.2em 2em;
-      display: flex;
-      justify-content: space-between;
+      padding: 3em 2em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2em;
       align-items: center;
       border: 1px solid var(--color-text);
       border-top: 6px solid var(--color-accent);
     }
 
-    h1 {
-      font-size: 2em;
-      font-weight: 700;
+    header h1 {
+      font-size: 2.5em;
+      font-weight: normal;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       line-height: 1;
-      margin: 0;
       font-family: var(--font-pixel);
     }
 
-    .header-controls {
-      display: flex;
-      gap: 1em;
-      align-items: center;
+    header p {
+      font-size: 0.95em;
+      max-width: 400px;
+      font-family: var(--font-serif);
     }
 
-    .help-btn {
-      background: transparent;
-      border: 1px solid var(--color-text);
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5em;
+      font-family: var(--font-serif);
+    }
+
+    h2 {
+      font-size: 1.4em;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 2.5em 0 1.2em 0;
+      padding-bottom: 0.6em;
+      border-bottom: 2px solid var(--color-accent);
       color: var(--color-text);
-      padding: 0.4em 0.8em;
-      font-size: 0.7em;
+      font-family: var(--font-pixel);
+    }
+
+    h3 {
+      font-size: 0.95em;
+      font-weight: normal;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      cursor: pointer;
+      margin: 2em 0 0.8em 0;
+      color: var(--color-accent);
       font-family: var(--font-pixel);
-      transition: all 0.2s;
     }
 
-    .help-btn:hover {
-      background: var(--color-accent);
-      color: var(--color-bg);
+    p { 
+      margin: 0 0 1em 0; 
+      line-height: 1.6;
     }
 
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 1.5em;
-      gap: 1.5em;
-    }
-
-    .controls-panel {
-      display: flex;
-      gap: 1em;
-      flex-wrap: wrap;
+    .section {
+      margin-bottom: 2.5em;
       border: 1px solid var(--color-text);
       padding: 1.5em;
       background: var(--color-subtle);
-      align-items: center;
     }
 
-    .tool-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5em;
+    .code-block {
+      position: relative;
+      margin: 1.2em 0 1.5em 0;
     }
 
-    .tool-label {
-      font-size: 0.65em;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--color-accent);
-      font-weight: 600;
-      font-family: var(--font-pixel);
-    }
-
-    input[type="range"] {
-      min-width: 200px;
-    }
-
-    .dimension-display {
-      display: inline-block;
-      background: var(--color-accent);
-      color: var(--color-bg);
-      padding: 0.3em 0.8em;
-      font-size: 0.8em;
-      font-family: var(--font-pixel);
-      margin-left: 0.5em;
-    }
-
-    .preset-btn {
+    pre {
       background: var(--color-text);
       color: var(--color-bg);
-      border: none;
-      padding: 0.4em 0.8em;
-      font-size: 0.7em;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      font-family: var(--font-pixel);
-      transition: all 0.2s;
-    }
-
-    .preset-btn:hover,
-    .preset-btn.active {
-      background: var(--color-accent);
-      color: var(--color-text);
-    }
-
-    .viewport-container {
-      border: 2px solid var(--color-text);
-      padding: 1.5em;
-      background: var(--color-subtle);
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
-
-    .viewport-label {
-      font-size: 0.65em;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--color-accent);
-      font-weight: 600;
-      font-family: var(--font-pixel);
-    }
-
-    .viewport-inner {
-      background: var(--color-bg);
-      border: 2px dashed var(--color-text);
-      padding: 1.5em;
-      min-height: 400px;
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
-
-    .responsive-example {
-      padding: 1.5em;
-      border: 2px solid var(--color-accent);
-      background: var(--color-subtle);
-    }
-
-    .example-title {
-      font-size: 0.9em;
-      font-weight: bold;
-      margin-bottom: 0.5em;
-      color: var(--color-accent);
-      font-family: var(--font-pixel);
-    }
-
-    .grid-preview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 0.5em;
-    }
-
-    .grid-item {
-      background: var(--color-accent);
-      color: var(--color-bg);
-      padding: 1em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8em;
-      font-family: var(--font-pixel);
-      min-height: 80px;
-    }
-
-    .info-table {
-      background: var(--color-subtle);
-      border: 1px solid var(--color-text);
-      padding: 1em;
-      display: grid;
-      gap: 0.5em;
-    }
-
-    .info-row {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 1em;
-      align-items: center;
-    }
-
-    .info-label {
-      font-size: 0.75em;
-      font-family: var(--font-pixel);
-      text-transform: uppercase;
-      color: var(--color-accent);
-    }
-
-    .info-value {
-      font-family: var(--font-pixel);
-      font-weight: bold;
-    }
-
-    .breakpoint-indicator {
-      padding: 0.8em;
-      background: var(--color-text);
-      color: var(--color-bg);
-      text-align: center;
-      font-family: var(--font-pixel);
-      font-weight: bold;
-      border: 2px solid var(--color-accent);
-    }
-
-    .code-output {
-      background: var(--color-text);
-      color: var(--color-bg);
-      padding: 1em;
+      padding: 1.2em;
+      padding-right: 4em;
+      overflow-x: auto;
       font-family: 'Courier New', monospace;
       font-size: 0.85em;
       line-height: 1.6;
-      overflow-x: auto;
-      border: 1px solid var(--color-accent);
-      position: relative;
-      margin-top: 1em;
+      border-left: 4px solid var(--color-accent);
     }
 
-    .copy-code-btn {
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .inline-code {
+      background: var(--color-subtle);
+      padding: 0.2em 0.4em;
+      border-left: 2px solid var(--color-accent);
+    }
+
+    .copy-btn {
       position: absolute;
       top: 0.5em;
       right: 0.5em;
@@ -251,338 +124,824 @@
       transition: all 0.2s;
     }
 
-    .copy-code-btn:hover {
+    .copy-btn:hover {
       background: var(--color-highlight);
       color: var(--color-text);
     }
 
-    /* Modal */
-    .modal-overlay {
-      display: none;
+    hr {
+      border: none;
+      border-top: 1px dashed var(--color-text);
+      margin: 2.5em 0;
+    }
+
+    ul, ol {
+      margin: 0 0 1em 0;
+      padding-left: 2em;
+    }
+
+    li { 
+      margin-bottom: 0.5em;
+      line-height: 1.6;
+    }
+
+    .example-box {
+      background: var(--color-bg);
+      border: 2px solid var(--color-accent);
+      padding: 1.2em;
+      margin: 1em 0;
+      position: relative;
+    }
+
+    .example-label {
+      position: absolute;
+      top: -12px;
+      left: 12px;
+      background: var(--color-bg);
+      padding: 0 6px;
+      font-size: 0.7em;
+      color: var(--color-accent);
+      font-family: var(--font-pixel);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5em;
+      margin: 1.5em 0;
+    }
+
+    .two-col > div {
+      border: 1px solid var(--color-text);
+      padding: 1em;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 1em;
+    }
+
+    .visual-card {
+      border: 1px solid var(--color-text);
+      background: var(--color-bg);
+      padding: 1em;
+    }
+
+    .visual-label {
+      font-family: var(--font-pixel);
+      font-size: 0.7em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.6em;
+      display: block;
+    }
+
+    .mini-layout {
+      border: 1px dashed var(--color-text);
+      padding: 0.7em;
+    }
+
+    .mini-layout header,
+    .mini-layout footer {
+      border: 1px solid var(--color-text);
+      border-top: 1px solid var(--color-text);
+      background: #eaf0ff;
+      padding: 0.5em;
+      margin: 0 0 0.5em 0;
+      font-size: 0.8em;
+      font-family: 'Courier New', monospace;
+    }
+
+    .mini-layout footer {
+      margin: 0.5em 0 0 0;
+    }
+
+    .mini-layout main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 0.5em;
+    }
+
+    .mini-layout article,
+    .mini-layout aside {
+      border: 1px solid var(--color-text);
+      padding: 0.5em;
+      background: #fff;
+      font-size: 0.78em;
+      font-family: 'Courier New', monospace;
+    }
+
+    .visual-ui {
+      border: 1px dashed var(--color-text);
+      padding: 0.8em;
+    }
+
+    .visual-ui .chip {
+      display: inline-block;
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      background: #eef2ff;
+      padding: 0.2em 0.5em;
+      margin-right: 0.4em;
+      margin-bottom: 0.4em;
+      font-size: 0.75em;
+      font-family: 'Courier New', monospace;
+    }
+
+    .visual-ui a {
+      font-size: 0.85em;
+    }
+
+    .tag-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1.1fr;
+      gap: 1em;
+      margin: 0.8em 0;
+    }
+
+    .tag-info,
+    .tag-code,
+    .tag-preview {
+      border: 1px solid var(--color-text);
+      background: var(--color-bg);
+      padding: 0.8em;
+    }
+
+    .tag-code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.8em;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      border-left: 3px solid var(--color-accent);
+    }
+
+    .tag-preview footer {
+      color: #111;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+    .tag-info strong {
+      font-family: 'Courier New', monospace;
+      color: var(--color-accent);
+    }
+
+    .tag-row-header {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1.1fr;
+      gap: 1em;
+      margin: 1em 0 0.6em 0;
+    }
+
+    .tag-row-header > div {
+      border-bottom: 2px solid var(--color-accent);
+      padding-bottom: 0.3em;
+      font-family: var(--font-pixel);
+      font-size: 0.72em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .tiny-site {
+      border: 1px dashed var(--color-text);
+      padding: 0.5em;
+      font-size: 0.8em;
+    }
+
+    .tiny-site header,
+    .tiny-site footer {
+      margin: 0 0 0.5em 0;
+      padding: 0.4em;
+      border: 1px solid var(--color-text);
+      border-top: 1px solid var(--color-text);
+      background: #edf2ff;
+      font-size: 0.85em;
+      color: #111;
+    }
+
+    .tiny-site footer {
+      margin: 0.5em 0 0 0;
+    }
+
+    .tiny-site nav {
+      margin: 0.4em 0;
+      display: flex;
+      gap: 0.5em;
+      flex-wrap: wrap;
+    }
+
+    .tiny-site nav a {
+      font-size: 0.78em;
+    }
+
+    .tiny-main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 0.5em;
+    }
+
+    .tiny-main article,
+    .tiny-main aside,
+    .tiny-main section {
+      border: 1px solid var(--color-text);
+      padding: 0.45em;
+      font-size: 0.78em;
+    }
+
+    .tiny-heading-demo h1,
+    .tiny-heading-demo h2,
+    .tiny-heading-demo h3 {
+      margin: 0.25em 0;
+      line-height: 1.2;
+      border: 0;
+      padding: 0;
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: var(--font-serif);
+      color: #111;
+    }
+
+    .tiny-form {
+      display: grid;
+      gap: 0.5em;
+      font-size: 0.82em;
+    }
+
+    .tiny-form input,
+    .tiny-form button {
+      padding: 0.4em 0.5em;
+      border: 1px solid var(--color-text);
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+    }
+
+    .tiny-form button {
+      background: #eaf0ff;
+      cursor: pointer;
+    }
+
+    .cursor-dot,
+    .cursor-ring {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1c39ff;
+      box-shadow: 0 0 0 2px rgba(28, 57, 255, 0.18);
+    }
+
+    .cursor-ring {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px dotted #1c39ff;
+      opacity: 0.9;
+      transition: width 0.18s ease, height 0.18s ease, opacity 0.18s ease;
+      animation: pulseRing 1.6s ease-in-out infinite;
+    }
+
+    @keyframes pulseRing {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.08); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor-ring {
+        animation: none;
+      }
+    }
+
+    footer {
+      background: var(--color-text);
+      color: var(--color-bg);
       padding: 2em;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-content {
-      background: var(--color-bg);
-      max-width: 500px;
-      width: 100%;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 2em;
-      border: 2px solid var(--color-text);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5em;
-      padding-bottom: 0.5em;
-      border-bottom: 2px solid var(--color-accent);
-    }
-
-    .modal-title {
-      font-size: 0.9em;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 700;
-      font-family: var(--font-pixel);
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 1.5em;
-      cursor: pointer;
-      color: var(--color-text);
-      line-height: 1;
-    }
-
-    .modal-close:hover {
-      color: var(--color-accent);
-    }
-
-    .help-section {
-      margin-bottom: 1.5em;
-    }
-
-    .help-section h3 {
+      text-align: center;
+      margin-top: 4em;
       font-size: 0.8em;
-      text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 0.5em;
-      color: var(--color-accent);
       font-family: var(--font-pixel);
-    }
-
-    .help-section p,
-    .help-section li {
-      font-size: 0.9em;
-      line-height: 1.6;
-      color: var(--color-text);
-    }
-
-    .help-section ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .help-section li {
-      margin-bottom: 0.5em;
-      padding-left: 1em;
-    }
-
-    .help-section li:before {
-      content: "▪ ";
-      margin-left: -1em;
-      margin-right: 0.5em;
-      color: var(--color-accent);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>RESPONSIVE BREAKPOINT TESTER</h1>
-    <div class="header-controls">
-      <button class="help-btn" onclick="toggleHelp()">HELP</button>
+    <div>
+      <h1>HTML CHEATSHEET</h1>
+    </div>
+    <div>
+      <p>Interactive Media // HyperText Markup Language // 2026</p>
+      <p style="font-size: 0.85em; margin-top: 1em; color: var(--color-accent);">REF: IM_HTML_001</p>
     </div>
   </header>
 
-  <main>
-    <div class="controls-panel">
-      <div class="tool-group">
-        <span class="tool-label">Width <span class="dimension-display" id="widthDisplay">1200px</span></span>
-        <input type="range" id="widthSlider" value="1200" min="320" max="1920" step="10" oninput="updateViewport()">
+  <div class="container">
+    <section class="section">
+      <h2>WHAT IS HTML & HOW TO READ IT</h2>
+      <p>HTML is a structure language. Think of it as nested boxes: a page contains sections, sections contain headings and paragraphs, and each part is wrapped in tags.</p>
+
+      <h3>Nested Tag Syntax</h3>
+      <div class="code-block">
+        <pre>&lt;main&gt;
+  &lt;section&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;p&gt;This paragraph is inside the section.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</pre>
+        <button class="copy-btn">COPY</button>
       </div>
 
-      <div class="tool-group">
-        <span class="tool-label">Presets</span>
-        <button class="preset-btn" onclick="setWidth(375, 'Mobile')">Mobile</button>
-        <button class="preset-btn" onclick="setWidth(768, 'Tablet')">Tablet</button>
-        <button class="preset-btn active" onclick="setWidth(1024, 'Desktop')">Desktop</button>
-        <button class="preset-btn" onclick="setWidth(1400, 'Large')">Large</button>
+      <h3>Self-Closing / Void Elements</h3>
+      <p>Some elements do not wrap content, so they do not need a closing pair. Common examples are <span class="inline-code">&lt;img&gt;</span>, <span class="inline-code">&lt;br&gt;</span>, <span class="inline-code">&lt;hr&gt;</span>, and <span class="inline-code">&lt;meta&gt;</span>.</p>
+      <div class="code-block">
+        <pre>&lt;img src="poster.jpg" alt="Film poster"&gt;
+&lt;br&gt;
+&lt;hr&gt;</pre>
+        <button class="copy-btn">COPY</button>
       </div>
-    </div>
 
-    <div class="viewport-container">
-      <span class="viewport-label">Viewport Preview</span>
+      <h3>Where CSS Can Live</h3>
+      <ul>
+        <li><strong>Inline style:</strong> quick one-off styling on one element only</li>
+        <li><strong>&lt;style&gt; block:</strong> CSS inside the page, usually in the <span class="inline-code">&lt;head&gt;</span></li>
+        <li><strong>External stylesheet:</strong> linked file like <span class="inline-code">styles.css</span> (best for real projects)</li>
+      </ul>
+      <div class="code-block">
+        <pre>&lt;!-- inline --&gt;
+&lt;p style="color: blue;"&gt;Inline style example&lt;/p&gt;
 
-      <div class="breakpoint-indicator" id="breakpointName">DESKTOP</div>
+&lt;!-- in &lt;head&gt; --&gt;
+&lt;style&gt;
+  p { color: blue; }
+&lt;/style&gt;
 
-      <div class="viewport-inner" id="viewport">
-        <div class="responsive-example">
-          <div class="example-title">Grid Example (Auto-fit)</div>
-          <div class="grid-preview">
-            <div class="grid-item">Card 1</div>
-            <div class="grid-item">Card 2</div>
-            <div class="grid-item">Card 3</div>
-            <div class="grid-item">Card 4</div>
-          </div>
+&lt;!-- external --&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>CORE STRUCTURE</h2>
+      <h3>Document Setup</h3>
+      <p>Every HTML document begins with a DOCTYPE and basic structure. This tells the browser what kind of document to expect.</p>
+      
+      <div class="code-block">
+        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <h3>Key Meta Tags</h3>
+      <ul>
+        <li><span class="inline-code">charset="UTF-8"</span> - Character encoding for text</li>
+        <li><span class="inline-code">viewport</span> - Responsive design for mobile devices</li>
+        <li><span class="inline-code">title</span> - Browser tab and search engine display</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>SEMANTIC HTML5 ELEMENTS</h2>
+      <h3>Structural Elements</h3>
+      <p>Use semantic elements to give meaning to your document structure, with a live preview for each:</p>
+
+      <div class="tag-row-header">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;header&gt;</strong><br/>Page or section heading area.</div>
+        <div class="tag-code">&lt;header&gt;
+  Site title + intro
+&lt;/header&gt;</div>
+        <div class="tag-preview"><header style="padding:0.45em;border:1px solid #111;background:#edf2ff;">Site title + intro</header></div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;nav&gt;</strong><br/>Navigation links that help users move around.</div>
+        <div class="tag-code">&lt;nav&gt;
+  &lt;a href="#"&gt;Home&lt;/a&gt;
+  &lt;a href="#"&gt;Work&lt;/a&gt;
+&lt;/nav&gt;</div>
+        <div class="tag-preview"><nav style="display:flex;gap:0.6em;"><a href="#">Home</a><a href="#">Work</a></nav></div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;main&gt;</strong><br/>The primary content of the page.</div>
+        <div class="tag-code">&lt;main&gt;
+  Main content area
+&lt;/main&gt;</div>
+        <div class="tag-preview"><main style="border:1px solid #111;padding:0.5em;">Main content area</main></div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;section&gt;</strong><br/>A thematic grouping of related content.</div>
+        <div class="tag-code">&lt;section&gt;
+  &lt;h2&gt;Section title&lt;/h2&gt;
+  &lt;p&gt;Related content...&lt;/p&gt;
+&lt;/section&gt;</div>
+        <div class="tag-preview"><section style="border:1px solid #111;padding:0.5em;"><h4 style="margin:0 0 0.3em 0;">Section title</h4><p style="margin:0;">Related content grouped together.</p></section></div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;article&gt;</strong><br/>Self-contained, reusable content block.</div>
+        <div class="tag-code">&lt;article&gt;
+  &lt;h3&gt;Blog Post&lt;/h3&gt;
+  &lt;p&gt;Standalone content&lt;/p&gt;
+&lt;/article&gt;</div>
+        <div class="tag-preview"><article style="border:1px solid #111;padding:0.5em;"><strong>Blog Post</strong><p style="margin:0.35em 0 0 0;">Standalone content</p></article></div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;aside&gt;</strong><br/>Supplementary content like tips or side notes.</div>
+        <div class="tag-code">&lt;aside&gt;
+  Side note or tip
+&lt;/aside&gt;</div>
+        <div class="tag-preview"><aside style="border:1px dashed #111;padding:0.5em;background:#f7f9ff;">Side note or tip</aside></div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;footer&gt;</strong><br/>Closing content (credits, links, legal info).</div>
+        <div class="tag-code">&lt;footer&gt;
+  © Studio Name
+&lt;/footer&gt;</div>
+        <div class="tag-preview"><footer style="padding:0.45em;border:1px solid #111;background:#edf2ff;">© Studio Name</footer></div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;figure&gt;</strong><br/>Image/graphic with optional caption via <strong>&lt;figcaption&gt;</strong>.</div>
+        <div class="tag-code">&lt;figure&gt;
+  &lt;img src="..." alt="..."&gt;
+  &lt;figcaption&gt;Caption&lt;/figcaption&gt;
+&lt;/figure&gt;</div>
+        <div class="tag-preview"><figure style="margin:0;border:1px solid #111;padding:0.5em;"><svg width="100%" height="52" viewBox="0 0 220 52"><rect width="220" height="52" fill="#eaf0ff"/><circle cx="26" cy="26" r="12" fill="#0000ff"/><rect x="52" y="14" width="140" height="24" fill="#cfd9ff"/></svg><figcaption style="font-size:0.75em;">Caption</figcaption></figure></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>TEXT ELEMENTS</h2>
+
+      <h3>Headings</h3>
+      <div class="code-block">
+        <pre>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Smaller Heading&lt;/h3&gt;
+&lt;!-- h4, h5, h6 available --&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <div class="tag-row-header">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>Heading hierarchy</strong><br/>Use H1 for page title, then H2/H3 for nested structure.</div>
+        <div class="tag-code">&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Smaller Heading&lt;/h3&gt;</div>
+        <div class="tag-preview tiny-heading-demo"><h1>Main Heading</h1><h2>Subheading</h2><h3>Smaller Heading</h3></div>
+      </div>
+
+      <h3>Paragraphs & Emphasis</h3>
+      <div class="code-block">
+        <pre>&lt;p&gt;Regular paragraph text.&lt;/p&gt;
+&lt;strong&gt;Bold important text&lt;/strong&gt;
+&lt;em&gt;Italic emphasized text&lt;/em&gt;
+&lt;mark&gt;Highlighted text&lt;/mark&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>Inline text tags</strong><br/><strong>&lt;strong&gt;</strong> = importance, <strong>&lt;em&gt;</strong> = emphasis, <strong>&lt;mark&gt;</strong> = highlight.</div>
+        <div class="tag-code">&lt;p&gt;Regular paragraph&lt;/p&gt;
+&lt;strong&gt;Important&lt;/strong&gt;
+&lt;em&gt;Emphasis&lt;/em&gt;
+&lt;mark&gt;Highlight&lt;/mark&gt;</div>
+        <div class="tag-preview"><p style="margin:0;">Regular paragraph. <strong>Important</strong>, <em>Emphasis</em>, and <mark>Highlight</mark>.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>LISTS</h2>
+
+      <h3>Unordered List (Bullets)</h3>
+      <div class="code-block">
+        <pre>&lt;ul&gt;
+  &lt;li&gt;Item one&lt;/li&gt;
+  &lt;li&gt;Item two&lt;/li&gt;
+  &lt;li&gt;Item three&lt;/li&gt;
+&lt;/ul&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <div class="tag-row-header">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;ul&gt; + &lt;li&gt;</strong><br/>Use for unordered items where order does not matter.</div>
+        <div class="tag-code">&lt;ul&gt;
+  &lt;li&gt;Item one&lt;/li&gt;
+  &lt;li&gt;Item two&lt;/li&gt;
+  &lt;li&gt;Item three&lt;/li&gt;
+&lt;/ul&gt;</div>
+        <div class="tag-preview"><ul><li>Item one</li><li>Item two</li><li>Item three</li></ul></div>
+      </div>
+
+      <h3>Ordered List (Numbered)</h3>
+      <div class="code-block">
+        <pre>&lt;ol&gt;
+  &lt;li&gt;First step&lt;/li&gt;
+  &lt;li&gt;Second step&lt;/li&gt;
+  &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;ol&gt; + &lt;li&gt;</strong><br/>Use for ordered steps, instructions, or ranked items.</div>
+        <div class="tag-code">&lt;ol&gt;
+  &lt;li&gt;First step&lt;/li&gt;
+  &lt;li&gt;Second step&lt;/li&gt;
+  &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;</div>
+        <div class="tag-preview"><ol><li>First step</li><li>Second step</li><li>Third step</li></ol></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>LINKS & MEDIA</h2>
+
+      <h3>Hyperlinks</h3>
+      <div class="code-block">
+        <pre>&lt;a href="https://example.com"&gt;Click here&lt;/a&gt;
+&lt;a href="page.html"&gt;Internal link&lt;/a&gt;
+&lt;a href="#section-id"&gt;Jump to section&lt;/a&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <div class="tag-row-header">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;a&gt;</strong><br/>Links can go to websites, local pages, or in-page anchors.</div>
+        <div class="tag-code">&lt;a href="https://example.com"&gt;External&lt;/a&gt;
+&lt;a href="page.html"&gt;Internal&lt;/a&gt;
+&lt;a href="#section"&gt;Jump&lt;/a&gt;</div>
+        <div class="tag-preview"><a href="#">External</a> · <a href="#">Internal</a> · <a href="#">Jump</a></div>
+      </div>
+
+      <h3>Images</h3>
+      <div class="code-block">
+        <pre>&lt;img src="image.jpg" alt="Description"&gt;
+&lt;img src="image.webp" alt="Description" width="300" height="200"&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;img&gt;</strong><br/>Always include <strong>alt</strong> text for accessibility.</div>
+        <div class="tag-code">&lt;img src="image.jpg"
+     alt="Description"
+     width="300" height="200"&gt;</div>
+        <div class="tag-preview"><svg width="100%" height="86" viewBox="0 0 260 86"><rect width="260" height="86" fill="#eaf0ff" stroke="#111"/><circle cx="38" cy="43" r="14" fill="#0000ff"/><rect x="64" y="26" width="166" height="34" fill="#cfd9ff"/></svg></div>
+      </div>
+
+      <h3>Embedded Media</h3>
+      <div class="code-block">
+        <pre>&lt;!-- Video --&gt;
+&lt;video width="320" height="240" controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+
+&lt;!-- Audio --&gt;
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;video&gt; and &lt;audio&gt;</strong><br/>Use <strong>controls</strong> so users can play/pause and scrub media.</div>
+        <div class="tag-code">&lt;video controls&gt;
+  &lt;source src="movie.mp4"&gt;
+&lt;/video&gt;
+
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3"&gt;
+&lt;/audio&gt;</div>
+        <div class="tag-preview"><video width="220" height="120" controls></video><br/><audio controls style="width:220px;"></audio></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FORMS & INPUT</h2>
+
+      <h3>Basic Form Structure</h3>
+      <div class="code-block">
+        <pre>&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+  
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <div class="tag-row-header">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;form&gt;, &lt;label&gt;, &lt;input&gt;, &lt;button&gt;</strong><br/>Labels improve usability and accessibility for each input.</div>
+        <div class="tag-code">&lt;form&gt;
+  &lt;label&gt;Name&lt;/label&gt;
+  &lt;input type="text"&gt;
+  &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</div>
+        <div class="tag-preview"><form class="tiny-form"><label for="preview-name">Name</label><input id="preview-name" type="text" placeholder="Your name"><label for="preview-email">Email</label><input id="preview-email" type="email" placeholder="you@example.com"><button type="button">Submit</button></form></div>
+      </div>
+
+      <h3>Input Types</h3>
+      <div class="two-col">
+        <div>
+          text, password, email, number, range, color, date, time
         </div>
-
-        <div class="responsive-example">
-          <div class="example-title">Flexible Layout</div>
-          <div style="display: flex; gap: 1em; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 150px; background: var(--color-accent); color: var(--color-bg); padding: 1em; text-align: center;">Sidebar</div>
-            <div style="flex: 2; min-width: 200px; background: var(--color-subtle); padding: 1em; border: 2px solid var(--color-text);">Main Content</div>
-          </div>
-        </div>
-
-        <div class="info-table">
-          <div class="info-row">
-            <div class="info-label">Width</div>
-            <div class="info-value" id="infoWidth">1200px</div>
-          </div>
-          <div class="info-row">
-            <div class="info-label">Breakpoint</div>
-            <div class="info-value" id="infoBreakpoint">Desktop</div>
-          </div>
-          <div class="info-row">
-            <div class="info-label">Columns</div>
-            <div class="info-value" id="infoColumns">4</div>
-          </div>
+        <div>
+          checkbox, radio, file, hidden, submit, reset
         </div>
       </div>
+    </section>
 
-      <span class="viewport-label">Practical CSS Snippet</span>
-      <div class="code-output">
-        <pre id="implementationCode"></pre>
-        <button class="copy-code-btn" onclick="copyImplementationCode()">COPY</button>
-      </div>
-    </div>
+    <section class="section">
+      <h2>INTERACTIVE CONTENT</h2>
 
-    <div style="border: 1px solid var(--color-text); padding: 1.5em; background: var(--color-subtle);">
-      <span class="viewport-label">Common Breakpoints</span>
-      <table style="width: 100%; margin-top: 1em; border-collapse: collapse;">
-        <tr style="border-bottom: 1px solid var(--color-text);">
-          <td style="padding: 0.8em; font-weight: bold; font-family: var(--font-pixel); color: var(--color-accent);">Device Type</td>
-          <td style="padding: 0.8em; font-weight: bold; font-family: var(--font-pixel); color: var(--color-accent);">Width Range</td>
-          <td style="padding: 0.8em; font-weight: bold; font-family: var(--font-pixel); color: var(--color-accent);">Typical Use</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--color-text);">
-          <td style="padding: 0.8em;">Mobile</td>
-          <td style="padding: 0.8em; font-family: monospace;">320px - 767px</td>
-          <td style="padding: 0.8em;">Phones</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--color-text);">
-          <td style="padding: 0.8em;">Tablet</td>
-          <td style="padding: 0.8em; font-family: monospace;">768px - 1023px</td>
-          <td style="padding: 0.8em;">iPad, small tablets</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--color-text);">
-          <td style="padding: 0.8em;">Desktop</td>
-          <td style="padding: 0.8em; font-family: monospace;">1024px - 1399px</td>
-          <td style="padding: 0.8em;">Laptops, desktop</td>
-        </tr>
-        <tr>
-          <td style="padding: 0.8em;">Large Desktop</td>
-          <td style="padding: 0.8em; font-family: monospace;">1400px+</td>
-          <td style="padding: 0.8em;">Large monitors</td>
-        </tr>
-      </table>
-    </div>
-  </main>
+      <h3>Canvas for Drawing</h3>
+      <div class="code-block">
+        <pre>&lt;canvas id="myCanvas" width="400" height="300"&gt;&lt;/canvas&gt;
 
-  <!-- Help Modal -->
-  <div class="modal-overlay" id="helpModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="modal-title">Responsive Testing Help</span>
-        <button class="modal-close" onclick="toggleHelp()">✕</button>
+&lt;script&gt;
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.fillRect(10, 10, 100, 100);
+&lt;/script&gt;</pre>
+        <button class="copy-btn">COPY</button>
       </div>
 
-      <div class="help-section">
-        <h3>What are Breakpoints?</h3>
-        <p>Breakpoints are specific viewport widths where your layout changes to optimize for different device sizes. They're essential for responsive design.</p>
+      <div class="tag-row-header">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
       </div>
 
-      <div class="help-section">
-        <h3>How to Use This Tool</h3>
-        <ul>
-          <li>Use the slider to simulate different viewport widths</li>
-          <li>Click preset buttons to test common device sizes</li>
-          <li>Watch how layouts adapt to different widths</li>
-          <li>The example shows how grid columns adjust</li>
-        </ul>
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;canvas&gt;</strong><br/>Raster drawing surface controlled via JavaScript.</div>
+        <div class="tag-code">&lt;canvas id="myCanvas"
+        width="220" height="100"&gt;
+&lt;/canvas&gt;
+
+const ctx = canvas.getContext('2d');
+ctx.fillRect(10,10,100,50);</div>
+        <div class="tag-preview"><canvas id="html-cheat-canvas" width="220" height="100" style="border:1px solid #111;background:#fff;"></canvas></div>
       </div>
 
-      <div class="help-section">
-        <h3>Standard Breakpoints (Bootstrap)</h3>
-        <ul>
-          <li>xs: 0px (mobile)</li>
-          <li>sm: 576px (small devices)</li>
-          <li>md: 768px (tablets)</li>
-          <li>lg: 992px (desktops)</li>
-          <li>xl: 1200px (large desktops)</li>
-        </ul>
+      <h3>SVG for Vector Graphics</h3>
+      <div class="code-block">
+        <pre>&lt;svg width="100" height="100"&gt;
+  &lt;circle cx="50" cy="50" r="40" fill="blue"&gt;&lt;/circle&gt;
+  &lt;rect x="10" y="10" width="50" height="50" fill="red"&gt;&lt;/rect&gt;
+&lt;/svg&gt;</pre>
+        <button class="copy-btn">COPY</button>
       </div>
 
-      <div class="help-section">
-        <h3>Mobile-First Approach</h3>
-        <p>Design for mobile first, then add breakpoints for larger screens. Use min-width media queries instead of max-width.</p>
+      <div class="tag-row">
+        <div class="tag-info"><strong>&lt;svg&gt;</strong><br/>Vector graphics that stay sharp at all sizes.</div>
+        <div class="tag-code">&lt;svg width="220" height="100"&gt;
+  &lt;rect x="8" y="8" width="90" height="60"/&gt;
+  &lt;circle cx="148" cy="48" r="28"/&gt;
+&lt;/svg&gt;</div>
+        <div class="tag-preview"><svg width="220" height="100" viewBox="0 0 220 100"><rect x="8" y="8" width="90" height="60" fill="#ff6b6b"/><circle cx="148" cy="48" r="28" fill="#0000ff"/></svg></div>
       </div>
-    </div>
+    </section>
+
+    <section class="section">
+      <h2>ACCESSIBILITY BASICS</h2>
+      <ul>
+        <li><strong>Alt text for images:</strong> <span class="inline-code">alt="Descriptive text"</span></li>
+        <li><strong>Semantic HTML:</strong> Use proper heading hierarchy (h1→h2→h3)</li>
+        <li><strong>Labels for inputs:</strong> <span class="inline-code">&lt;label for="id"&gt;</span></li>
+        <li><strong>ARIA attributes:</strong> <span class="inline-code">aria-label</span>, <span class="inline-code">role</span></li>
+        <li><strong>Skip links:</strong> Allow keyboard navigation to main content</li>
+      </ul>
+    </section>
+
   </div>
 
+  <footer>
+    IM_2026 // HTML REFERENCE // MAINTAINED BY VCA TEACHING
+  </footer>
+
   <script>
-    const breakpoints = {
-      375: { name: 'Mobile', columns: 1 },
-      768: { name: 'Tablet', columns: 2 },
-      1024: { name: 'Desktop', columns: 3 },
-      1400: { name: 'Large Desktop', columns: 4 }
-    };
+    const cursorDot = document.createElement('div');
+    const cursorRing = document.createElement('div');
+    cursorDot.className = 'cursor-dot';
+    cursorRing.className = 'cursor-ring';
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorRing);
 
-    function getBreakpointInfo(width) {
-      let currentBreakpoint = { name: 'Mobile', columns: 1 };
-      if (width >= 375 && width < 768) {
-        currentBreakpoint = { name: 'Mobile', columns: 1 };
-      } else if (width >= 768 && width < 1024) {
-        currentBreakpoint = { name: 'Tablet', columns: 2 };
-      } else if (width >= 1024 && width < 1400) {
-        currentBreakpoint = { name: 'Desktop', columns: 3 };
-      } else if (width >= 1400) {
-        currentBreakpoint = { name: 'Large Desktop', columns: 4 };
-      }
-      return currentBreakpoint;
+    let cursorX = window.innerWidth / 2;
+    let cursorY = window.innerHeight / 2;
+    let ringX = cursorX;
+    let ringY = cursorY;
+
+    window.addEventListener('mousemove', (event) => {
+      cursorX = event.clientX;
+      cursorY = event.clientY;
+      cursorDot.style.left = `${cursorX}px`;
+      cursorDot.style.top = `${cursorY}px`;
+    });
+
+    window.addEventListener('mousedown', () => {
+      cursorRing.style.width = '38px';
+      cursorRing.style.height = '38px';
+      cursorRing.style.opacity = '0.65';
+    });
+
+    window.addEventListener('mouseup', () => {
+      cursorRing.style.width = '28px';
+      cursorRing.style.height = '28px';
+      cursorRing.style.opacity = '0.9';
+    });
+
+    function animateCursorRing() {
+      ringX += (cursorX - ringX) * 0.22;
+      ringY += (cursorY - ringY) * 0.22;
+      cursorRing.style.left = `${ringX}px`;
+      cursorRing.style.top = `${ringY}px`;
+      requestAnimationFrame(animateCursorRing);
     }
+    animateCursorRing();
 
-    function updateViewport() {
-      const width = parseInt(document.getElementById('widthSlider').value);
-      const viewport = document.getElementById('viewport');
-      const breakpoint = getBreakpointInfo(width);
-
-      viewport.style.width = width + 'px';
-      document.getElementById('widthDisplay').textContent = width + 'px';
-      document.getElementById('infoWidth').textContent = width + 'px';
-      document.getElementById('infoBreakpoint').textContent = breakpoint.name;
-      document.getElementById('infoColumns').textContent = breakpoint.columns;
-      document.getElementById('breakpointName').textContent = breakpoint.name.toUpperCase();
-      updateImplementationCode();
-    }
-
-    function setWidth(width, name) {
-      document.getElementById('widthSlider').value = width;
-      
-      // Update active button
-      document.querySelectorAll('.preset-btn').forEach(btn => {
-        btn.classList.remove('active');
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const pre = this.previousElementSibling;
+        const text = pre.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = this.textContent;
+          this.textContent = 'COPIED!';
+          setTimeout(() => {
+            this.textContent = original;
+          }, 2000);
+        });
       });
-      event.target.classList.add('active');
-      
-      updateViewport();
+    });
+
+    const demoCanvas = document.getElementById('html-cheat-canvas');
+    if (demoCanvas) {
+      const ctx = demoCanvas.getContext('2d');
+      ctx.fillStyle = '#eaf0ff';
+      ctx.fillRect(0, 0, demoCanvas.width, demoCanvas.height);
+      ctx.fillStyle = '#0000ff';
+      ctx.fillRect(16, 18, 64, 64);
+      ctx.fillStyle = '#111';
+      ctx.font = '12px Courier New';
+      ctx.fillText('canvas preview', 92, 53);
     }
-
-    function updateImplementationCode() {
-      const width = parseInt(document.getElementById('widthSlider').value);
-      const breakpoint = getBreakpointInfo(width);
-      const code = `.cards {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1024px) {
-  .cards { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (min-width: 1400px) {
-  .cards { grid-template-columns: repeat(4, 1fr); }
-}
-
-/* Current test width: ${width}px (${breakpoint.name}) */`;
-      document.getElementById('implementationCode').textContent = code;
-    }
-
-    function copyImplementationCode() {
-      const code = document.getElementById('implementationCode').textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        alert('CSS snippet copied!');
-      });
-    }
-
-    function toggleHelp() {
-      document.getElementById('helpModal').classList.toggle('active');
-    }
-
-    // Initialize
-    updateViewport();
   </script>
 </body>
 </html>
