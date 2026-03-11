@@ -1,0 +1,111 @@
+/*
+  Interactive Media - Core Design System
+  Aesthetic: Technical Manual / Early Internet Encyclopedia
+  Inspired by: makingsoftware.com
+*/
+
+:root {
+    /* Colors */
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --color-accent: #0000ff;
+    /* Retro Cobalt Blue */
+    --color-highlight: #ffff00;
+    /* Marker Yellow */
+    --color-subtle: #f0f0f0;
+
+    /* Typography */
+    --font-pixel: 'Departure Mono', monospace;
+    --font-serif: 'EB Garamond', serif;
+
+    /* Spacing */
+    --space-unit: 8px;
+    --grid-gap: 24px;
+
+    /* Borders & Shadows */
+    --border-width: 1px;
+    --border-style: solid;
+    --shadow-inset: inset 2px 2px 0px rgba(0, 0, 0, 0.1);
+    --shadow-retro: 4px 4px 0px var(--color-text);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+/* Note: Departure Mono might need to be self-hosted or found on a CDN if not on Google Fonts */
+@font-face {
+    font-family: 'Departure Mono';
+    src: url('https://cdn.jsdelivr.net/gh/phuocng/departure-mono@main/fonts/DepartureMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-serif);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.label,
+.pixel-text {
+    font-family: var(--font-pixel);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    background-color: var(--color-highlight);
+    color: var(--color-text);
+}
+
+.highlight {
+    background-color: var(--color-highlight);
+    padding: 0 4px;
+}
+
+/* Technical Manual Layout Components */
+.figure-container {
+    border: var(--border-width) var(--border-style) var(--color-text);
+    padding: var(--space-unit);
+    margin: var(--grid-gap) 0;
+    position: relative;
+}
+
+.figure-label {
+    position: absolute;
+    top: -12px;
+    left: 12px;
+    background: var(--color-bg);
+    padding: 0 8px;
+    font-size: 0.8rem;
+    color: var(--color-accent);
+}
+
+/* ASCII Separator Example */
+.separator-dots {
+    border: none;
+    border-top: 1px dashed var(--color-text);
+    height: 0;
+    margin: var(--grid-gap) 0;
+}
+
+.separator-blocks::before {
+    content: "░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█";
+    display: block;
+    color: var(--color-subtle);
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: var(--font-pixel);
+}
