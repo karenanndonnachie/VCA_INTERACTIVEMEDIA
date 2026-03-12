@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Media Snippets + Cheatsheets</title>
+  <link rel="stylesheet" href="../styles/base.css">
+  <style>
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    header {
+      background: var(--color-subtle);
+      color: var(--color-text);
+      border: 1px solid var(--color-text);
+      border-top: 6px solid var(--color-accent);
+      padding: 1.4rem 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2rem;
+      font-family: var(--font-pixel);
+      letter-spacing: 0.05em;
+    }
+
+    .sub {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .legend {
+      border: 1px dashed var(--color-text);
+      padding: 0.8rem;
+      margin-bottom: 1.2rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      background: #f8faff;
+    }
+
+    .ascii-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .ascii-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      border: 1px solid var(--color-text);
+      padding: 0.7rem;
+      background: var(--color-bg);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .ascii-link:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    .ascii-link:focus-visible {
+      outline: 3px dotted var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .ascii {
+      margin: 0;
+      white-space: pre;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      line-height: 1.24;
+      color: #0f1d6b;
+    }
+
+    .name {
+      margin-top: 0.55rem;
+      font-family: var(--font-pixel);
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      border-top: 1px dashed var(--color-text);
+      padding-top: 0.8rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>CODE SNIPPETS+CHEATSHEETS</h1>
+      <p class="sub">Interactive Media snippets on one page. Click any ASCII block to open a cheatsheet.</p>
+    </header>
+
+    <div class="legend">
+      [ NAV_MODE: ASCII ]  [ ACTION: CLICK TILE ]  [ OUTPUT: OPEN SNIPPET ]
+    </div>
+
+    <main class="ascii-grid">
+      <a class="ascii-link" href="html_cheatsheet.html">
+<pre class="ascii">+----------------------------------+
+|      .--------------------.      |
+|      |  []   []   []      |      |
+|      |   |    |    |      |      |
+|      |  / \  / \  / \     |      |
+|      | /___\/___\/___\    |      |
+|      '--------------------'      |
+|        o document tree o         |
++----------------------------------+</pre>
+        <div class="name">Open HTML Cheatsheet</div>
+      </a>
+
+      <a class="ascii-link" href="css_cheatsheet.html">
+<pre class="ascii">+----------------------------------+
+|   .-----.   .-----.   .-----.    |
+|   | ### |   | ### |   | ### |    |
+|   '-----'   '-----'   '-----'    |
+|      |         |         |       |
+|   ---o----  ---o----  ---o----   |
+|    palette + sliders + knobs     |
+|         o style controls o       |
++----------------------------------+</pre>
+        <div class="name">Open CSS Cheatsheet</div>
+      </a>
+
+      <a class="ascii-link" href="javascript_cheatsheet.html">
+<pre class="ascii">+----------------------------------+
+|   o----o      o----o      o--o   |
+|        \      |    |      /      |
+|         o-----o    o-----o       |
+|               \    /             |
+|            o---o--o---o          |
+|                 !!               |
+|         o logic circuit o        |
++----------------------------------+</pre>
+        <div class="name">Open JavaScript Cheatsheet</div>
+      </a>
+
+      <a class="ascii-link" href="p5js_cheatsheet.html">
+<pre class="ascii">+----------------------------------+
+|      ~~~      ~~~~~      ~~      |
+|   o       o      *      o   o    |
+|        *      .-----.            |
+|   .-.      .-(  ()  )-.    *     |
+|  (   )       '-.____.-'          |
+|      *      generative vibes     |
+|        o shapes + motion o       |
++----------------------------------+</pre>
+        <div class="name">Open P5.js Cheatsheet</div>
+      </a>
+
+      <a class="ascii-link" href="canvas_drawing_cheatsheet.html">
+<pre class="ascii">+----------------------------------+
+|   .--------------------------.   |
+|   |  *      o        []      |   |
+|   |      /\      __          |   |
+|   |   o /__\  o /__\   *     |   |
+|   '--------------------------'   |
+|        [====]----->             |
+|          frame + brush           |
++----------------------------------+</pre>
+        <div class="name">Open Canvas Cheatsheet</div>
+      </a>
+    </main>
+
+    <footer>
+      IM_2026 // ASCII_NAV // snippets/index.html
+    </footer>
+  </div>
+</body>
+</html>
