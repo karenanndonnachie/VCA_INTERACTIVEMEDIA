@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P5.js Cheatsheet - Interactive Media 2026</title>
+  <link rel="stylesheet" href="../styles/base.css">
+  <style>
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    header {
+      background: var(--color-subtle);
+      color: var(--color-text);
+      padding: 3em 2em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2em;
+      align-items: center;
+      border: 1px solid var(--color-text);
+      border-top: 6px solid var(--color-accent);
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      font-family: var(--font-pixel);
+    }
+
+    header p {
+      font-size: 0.95em;
+      max-width: 400px;
+      font-family: var(--font-serif);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5em;
+      font-family: var(--font-serif);
+    }
+
+    h2 {
+      font-size: 1.4em;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 2.5em 0 1.2em 0;
+      padding-bottom: 0.6em;
+      border-bottom: 2px solid var(--color-accent);
+      color: var(--color-text);
+      font-family: var(--font-pixel);
+    }
+
+    h3 {
+      font-size: 0.95em;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 2em 0 0.8em 0;
+      color: var(--color-accent);
+      font-family: var(--font-pixel);
+    }
+
+    p { 
+      margin: 0 0 1em 0; 
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 2.5em;
+      border: 1px solid var(--color-text);
+      padding: 1.5em;
+      background: var(--color-subtle);
+    }
+
+    .code-block {
+      position: relative;
+      margin: 1.2em 0 1.5em 0;
+    }
+
+    pre {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: 1.2em;
+      padding-right: 4em;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      line-height: 1.6;
+      border-left: 4px solid var(--color-accent);
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      background: var(--color-accent);
+      color: var(--color-bg);
+      border: none;
+      padding: 0.4em 0.8em;
+      font-size: 0.7em;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-pixel);
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--color-highlight);
+      color: var(--color-text);
+    }
+
+    .inline-code {
+      background: var(--color-subtle);
+      padding: 0.2em 0.4em;
+      border-left: 2px solid var(--color-accent);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5em;
+      margin: 1.5em 0;
+    }
+
+    .two-col > div {
+      border: 1px solid var(--color-text);
+      padding: 1em;
+    }
+
+    ul, ol {
+      margin: 0 0 1em 0;
+      padding-left: 2em;
+    }
+
+    li { 
+      margin-bottom: 0.5em;
+      line-height: 1.6;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 1em;
+    }
+
+    .visual-card {
+      border: 1px solid var(--color-text);
+      background: var(--color-bg);
+      padding: 0.8em;
+    }
+
+    .visual-card canvas {
+      width: 100%;
+      height: auto;
+      border: 1px dashed var(--color-text);
+      background: #f8f8ff;
+      display: block;
+      margin-top: 0.6em;
+    }
+
+    .columns-head {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 0.8em;
+      margin: 1em 0 0.5em 0;
+    }
+
+    .columns-head div {
+      border: 1px solid var(--color-text);
+      padding: 0.45em 0.6em;
+      font-family: var(--font-pixel);
+      font-size: 0.72em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--color-bg);
+      color: var(--color-accent);
+    }
+
+    .cheat-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 0.8em;
+      margin: 0.8em 0 1.2em 0;
+      align-items: stretch;
+    }
+
+    .cheat-col {
+      border: 1px solid var(--color-text);
+      background: var(--color-bg);
+      padding: 0.8em;
+      font-size: 0.9em;
+    }
+
+    .example-box {
+      background: var(--color-bg);
+      border: 1px solid var(--color-accent);
+      padding: 1.2em 0.8em 0.8em 0.8em;
+      position: relative;
+    }
+
+    .example-label {
+      position: absolute;
+      top: 0.35em;
+      left: 0.6em;
+      font-size: 0.65em;
+      color: var(--color-accent);
+      font-family: var(--font-pixel);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .mini-canvas {
+      width: 100%;
+      max-width: 280px;
+      border: 1px dashed var(--color-text);
+      background: #f8f8ff;
+      display: block;
+    }
+
+    .cheat-row .code-block,
+    .cheat-row .example-box {
+      margin: 0;
+      height: 100%;
+    }
+
+    .tiny-note {
+      font-size: 0.78em;
+      margin-top: 0.45em;
+      color: var(--color-accent);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 920px) {
+      .columns-head,
+      .cheat-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer {
+      background: var(--color-text);
+      color: var(--color-bg);
+      padding: 2em;
+      text-align: center;
+      margin-top: 4em;
+      font-size: 0.8em;
+      letter-spacing: 0.1em;
+      font-family: var(--font-pixel);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>P5.JS CHEATSHEET</h1>
+    </div>
+    <div>
+      <p>Interactive Media // Creative Coding // 2026</p>
+      <p style="font-size: 0.85em; margin-top: 1em; color: var(--color-accent);">REF: IM_P5JS_001</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="section">
+      <h2>SETUP & BASIC STRUCTURE</h2>
+
+      <div class="columns-head">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <h3>Required HTML</h3>
+      <div class="code-block">
+        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;p5.js Sketch&lt;/title&gt;
+  &lt;!-- Load p5.js from CDN --&gt;
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"&gt;&lt;/script&gt;
+  &lt;script src="sketch.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <h3>Minimal Sketch</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p>This is the smallest complete p5 sketch: create a canvas once in <strong>setup()</strong> and draw each frame in <strong>draw()</strong>.</p>
+          <p>Use this as your default starter structure.</p>
+        </div>
+        <div class="code-block">
+          <pre>function setup() {
+  createCanvas(400, 300);
+}
+
+function draw() {
+  background(255);
+  fill(0);
+  circle(200, 150, 50);
+}</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5MiniSetup" class="mini-canvas" width="260" height="150"></canvas>
+        </div>
+      </div>
+
+      <h3>Understanding setup() and draw()</h3>
+      <ul>
+        <li><strong>setup():</strong> Runs once at the start. Initialize canvas and variables.</li>
+        <li><strong>draw():</strong> Runs repeatedly (default 60 times/second). Update and render.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>CANVAS & COORDINATE SYSTEM</h2>
+
+      <h3>Canvas Creation</h3>
+      <div class="code-block">
+        <pre>/* Create canvas with width and height */
+createCanvas(800, 600);
+
+/* Full window */
+createCanvas(windowWidth, windowHeight);
+
+/* Resize on window change */
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <h3>Coordinate System</h3>
+      <p><strong>(0, 0) is at the TOP-LEFT corner</strong></p>
+      <ul>
+        <li>X increases to the RIGHT</li>
+        <li>Y increases DOWNWARD</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>SHAPES & DRAWING</h2>
+
+      <div class="columns-head">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <h3>Basic Shapes</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p>Shape functions are coordinate-based drawing tools.</p>
+          <p>Start with primitives and combine them into more complex visuals.</p>
+        </div>
+        <div class="code-block">
+          <pre>/* Rectangle: x, y, width, height */
+rect(50, 50, 100, 80);
+
+/* Circle: x, y, diameter */
+circle(100, 100, 50);
+
+/* Ellipse: x, y, width, height */
+ellipse(200, 150, 100, 60);
+
+/* Line: x1, y1, x2, y2 */
+line(0, 0, 200, 200);
+
+/* Triangle */
+triangle(100, 10, 40, 198, 190, 170);
+
+/* Point: x, y */
+point(50, 50);</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5MiniShapes" class="mini-canvas" width="260" height="160"></canvas>
+        </div>
+      </div>
+
+      <h3>Polygon (Arbitrary Shapes)</h3>
+      <div class="code-block">
+        <pre>beginShape();
+vertex(30, 20);
+vertex(85, 20);
+vertex(85, 75);
+vertex(30, 75);
+endShape(CLOSE);</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <h3>Shape Modes</h3>
+      <div class="code-block">
+        <pre>/* CORNER: Corner is at x, y (default) */
+rectMode(CORNER);
+
+/* CENTER: Center is at x, y */
+rectMode(CENTER);
+rect(100, 100, 50, 50);
+
+/* RADIUS: x, y is center, width/height are radii */
+rectMode(RADIUS);</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>COLOR & STYLING</h2>
+
+      <div class="columns-head">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <h3>Setting Colors</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p><strong>fill()</strong> colors shape interiors, <strong>stroke()</strong> controls outlines, and <strong>background()</strong> clears each frame.</p>
+          <p>RGBA adds transparency with the fourth value.</p>
+        </div>
+        <div class="code-block">
+          <pre>/* Fill color (interior) */
+fill(255, 0, 0);  /* Red */
+fill(255);        /* Grayscale */
+fill(255, 0, 0, 150);  /* RGBA - with alpha/opacity */
+
+/* Stroke color (outline) */
+stroke(0);
+
+/* Stroke weight (thickness) */
+strokeWeight(2);
+
+/* Background color */
+background(200);</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5MiniColor" class="mini-canvas" width="260" height="150"></canvas>
+        </div>
+      </div>
+
+      <h3>No Fill / No Stroke</h3>
+      <div class="code-block">
+        <pre>noFill();      /* Draw shapes with no fill */
+noStroke();    /* Draw shapes with no outline */
+
+/* Reset to default */
+fill(0);
+stroke(0);</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <h3>Color Values</h3>
+      <div class="code-block">
+        <pre>/* RGB: 0-255 each */
+fill(255, 128, 0);
+
+/* RGBA: with alpha 0-255 */
+fill(255, 128, 0, 200);
+
+/* HSB: Hue, Saturation, Brightness */
+colorMode(HSB);
+fill(hue, saturation, brightness);</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>INTERACTION & EVENTS</h2>
+
+      <div class="columns-head">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <h3>Mouse Input</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p><strong>mouseX</strong> and <strong>mouseY</strong> track the pointer each frame.</p>
+          <p>Interaction callbacks like <strong>mousePressed()</strong> run when the event occurs.</p>
+        </div>
+        <div class="code-block">
+          <pre>/* Current mouse position */
+mouseX
+mouseY
+
+/* Previous mouse position */
+pmouseX
+pmouseY
+
+/* Event called when mouse pressed */
+function mousePressed() {
+  circle(mouseX, mouseY, 20);
+}</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5MiniMouse" class="mini-canvas" width="260" height="150"></canvas>
+          <p class="tiny-note">Move your cursor here</p>
+        </div>
+      </div>
+
+      <h3>Keyboard Input</h3>
+      <div class="code-block">
+        <pre>/* Key pressed */
+function keyPressed() {
+  if (key === 'a') {
+    // Do something when 'a' is pressed
+  }
+  if (keyCode === LEFT_ARROW) {
+    // Arrow keys
+  }
+}</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+
+      <h3>Common Keys</h3>
+      <ul>
+        <li>LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW</li>
+        <li>SHIFT, CONTROL, ALT</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>VARIABLES & LOOPS</h2>
+
+      <div class="columns-head">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <h3>Global Variables</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p>Global variables persist between frames, which makes animation possible.</p>
+          <p>Incrementing position values in <strong>draw()</strong> creates continuous motion.</p>
+        </div>
+        <div class="code-block">
+          <pre>let x = 100;
+let y = 150;
+let speed = 5;
+
+function setup() {
+  createCanvas(400, 300);
+}
+
+function draw() {
+  background(255);
+  x += speed;
+  circle(x, y, 30);
+}</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5MiniMove" class="mini-canvas" width="260" height="150"></canvas>
+        </div>
+      </div>
+
+      <h3>Loops</h3>
+      <div class="code-block">
+        <pre>/* Draw 10 circles in a row */
+for (let i = 0; i < 10; i++) {
+  circle(i * 50, 100, 20);
+}
+
+/* While loop */
+let count = 0;
+while (count < 5) {
+  console.log(count);
+  count++;
+}</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>ANIMATION & MOVEMENT</h2>
+
+      <div class="columns-head">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <h3>Simple Animation</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p>Animation in p5 is just repeated drawing with changing values.</p>
+          <p>Here, <strong>x</strong> increments each frame, and resets once it leaves the canvas.</p>
+        </div>
+        <div class="code-block">
+          <pre>let x = 0;
+
+function draw() {
+  background(255);
+  fill(0);
+  circle(x, 100, 30);
+  
+  /* Increment x each frame */
+  x = x + 5;
+  
+  /* Reset when off screen */
+  if (x > width) {
+    x = 0;
+  }
+}</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5VisualA" class="mini-canvas" width="260" height="150"></canvas>
+        </div>
+      </div>
+
+      <h3>Using sin() and cos() for Motion</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p><strong>sin()</strong> and <strong>cos()</strong> create smooth oscillation and orbital movement.</p>
+          <p>Using <strong>frameCount</strong> as time input produces continuous motion.</p>
+        </div>
+        <div class="code-block">
+          <pre>function draw() {
+  background(255);
+  
+  /* Use sine for smooth up/down */
+  let y = 150 + sin(frameCount * 0.05) * 50;
+  
+  /* Use cosine for smooth left/right */
+  let x = 200 + cos(frameCount * 0.05) * 100;
+  
+  circle(x, y, 30);
+}</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5VisualB" class="mini-canvas" width="260" height="150"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>TEXT & FONTS</h2>
+
+      <div class="columns-head">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <h3>Text Output</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p>Text uses the same drawing pipeline as shapes.</p>
+          <p>Combine <strong>textSize()</strong>, <strong>fill()</strong>, and <strong>textAlign()</strong> for readable labels and titles.</p>
+        </div>
+        <div class="code-block">
+          <pre>/* Set text size in pixels */
+textSize(16);
+
+/* Set text color */
+fill(0);
+
+/* Draw text at x, y */
+text('Hello World', 50, 100);
+
+/* Text alignment */
+textAlign(CENTER);
+text('Centered', width/2, 50);</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5MiniText" class="mini-canvas" width="260" height="150"></canvas>
+        </div>
+      </div>
+
+      <h3>Custom Fonts</h3>
+      <div class="code-block">
+        <pre>let myFont;
+
+function preload() {
+  myFont = loadFont('path/to/font.otf');
+}
+
+function setup() {
+  createCanvas(400, 300);
+  textFont(myFont);
+}</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>MATH & RANDOMNESS</h2>
+
+      <div class="columns-head">
+        <div>Explanation</div>
+        <div>Code Snippet</div>
+        <div>Visual Result</div>
+      </div>
+
+      <h3>Random Values</h3>
+      <div class="cheat-row">
+        <div class="cheat-col">
+          <p><strong>random()</strong> adds variation and unpredictability to sketches.</p>
+          <p>Convert to integers with <strong>int()</strong> for dice rolls, indexes, or grid selections.</p>
+        </div>
+        <div class="code-block">
+          <pre>/* Random decimal 0-1 */
+random();
+
+/* Random between min and max */
+random(50, 100);
+
+/* Random integer */
+int(random(1, 7)); /* 1-6 like a die */</pre>
+          <button class="copy-btn">COPY</button>
+        </div>
+        <div class="example-box">
+          <span class="example-label">Visual</span>
+          <canvas id="p5MiniRandom" class="mini-canvas" width="260" height="150"></canvas>
+        </div>
+      </div>
+
+      <h3>Math Functions</h3>
+      <div class="code-block">
+        <pre>sqrt(16);          /* Square root = 4 */
+pow(2, 3);         /* 2^3 = 8 */
+abs(-5);           /* Absolute value = 5 */
+floor(3.7);        /* Round down = 3 */
+ceil(3.2);         /* Round up = 4 */
+map(x, 0, 100, 0, 255);  /* Map range */</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>ARRAYS</h2>
+
+      <h3>Creating & Using Arrays</h3>
+      <div class="code-block">
+        <pre>/* Create array */
+let numbers = [10, 20, 30];
+
+/* Access elements (0-indexed) */
+numbers[0];  /* 10 */
+
+/* Add element */
+numbers.push(40);
+
+/* Get length */
+numbers.length;
+
+/* Loop through array */
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+}</pre>
+        <button class="copy-btn">COPY</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>USEFUL VARIABLES</h2>
+
+      <h3>Built-in Variables</h3>
+      <div class="two-col">
+        <div>
+          <strong>frameCount</strong><br/>
+          Number of frames since start<br/><br/>
+          <strong>width, height</strong><br/>
+          Canvas dimensions<br/><br/>
+          <strong>mouseX, mouseY</strong><br/>
+          Current mouse position<br/><br/>
+          <strong>pmouseX, pmouseY</strong><br/>
+          Previous mouse position
+        </div>
+        <div>
+          <strong>mousePressed</strong><br/>
+          Boolean: is mouse pressed?<br/><br/>
+          <strong>keyIsPressed</strong><br/>
+          Boolean: is key pressed?<br/><br/>
+          <strong>day(), month(), year()</strong><br/>
+          Date helpers<br/><br/>
+          <strong>hour(), minute(), second(), millis()</strong><br/>
+          Time helpers
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    IM_2026 // P5.JS REFERENCE // MAINTAINED BY VCA TEACHING
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const pre = this.previousElementSibling;
+        const text = pre.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = this.textContent;
+          this.textContent = 'COPIED!';
+          setTimeout(() => {
+            this.textContent = original;
+          }, 2000);
+        });
+      });
+    });
+
+    const visualA = document.getElementById('p5VisualA');
+    const visualB = document.getElementById('p5VisualB');
+    const miniSetup = document.getElementById('p5MiniSetup');
+    const miniShapes = document.getElementById('p5MiniShapes');
+    const miniColor = document.getElementById('p5MiniColor');
+    const miniMouse = document.getElementById('p5MiniMouse');
+    const miniMove = document.getElementById('p5MiniMove');
+    const miniText = document.getElementById('p5MiniText');
+    const miniRandom = document.getElementById('p5MiniRandom');
+
+    function frameCanvas(ctx, canvas) {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = '#0000ff';
+      ctx.strokeRect(0, 0, canvas.width, canvas.height);
+    }
+
+    if (miniSetup) {
+      const ctx = miniSetup.getContext('2d');
+      frameCanvas(ctx, miniSetup);
+      ctx.fillStyle = '#111';
+      ctx.beginPath();
+      ctx.arc(130, 75, 26, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    if (miniShapes) {
+      const ctx = miniShapes.getContext('2d');
+      frameCanvas(ctx, miniShapes);
+      ctx.fillStyle = '#99a6ff';
+      ctx.fillRect(20, 20, 70, 42);
+      ctx.beginPath();
+      ctx.arc(140, 40, 22, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#111';
+      ctx.beginPath();
+      ctx.moveTo(12, 130);
+      ctx.lineTo(248, 90);
+      ctx.stroke();
+      ctx.fillStyle = '#111';
+      ctx.beginPath();
+      ctx.moveTo(190, 52);
+      ctx.lineTo(230, 110);
+      ctx.lineTo(150, 110);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    if (miniColor) {
+      const ctx = miniColor.getContext('2d');
+      frameCanvas(ctx, miniColor);
+      ctx.fillStyle = '#f6f6f6';
+      ctx.fillRect(0, 0, miniColor.width, miniColor.height);
+      ctx.fillStyle = 'rgba(255,0,0,0.7)';
+      ctx.strokeStyle = '#111';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(90, 75, 28, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(0,0,255,0.55)';
+      ctx.beginPath();
+      ctx.arc(130, 75, 28, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    if (miniText) {
+      const ctx = miniText.getContext('2d');
+      frameCanvas(ctx, miniText);
+      ctx.fillStyle = '#111';
+      ctx.font = '16px Georgia';
+      ctx.fillText('Hello World', 14, 90);
+      ctx.font = '700 18px Georgia';
+      ctx.textAlign = 'center';
+      ctx.fillText('Centered', miniText.width / 2, 42);
+      ctx.textAlign = 'start';
+    }
+
+    if (miniRandom) {
+      const ctx = miniRandom.getContext('2d');
+      frameCanvas(ctx, miniRandom);
+      for (let i = 0; i < 32; i++) {
+        const x = Math.random() * miniRandom.width;
+        const y = Math.random() * miniRandom.height;
+        const r = 3 + Math.random() * 10;
+        ctx.fillStyle = `rgba(0, 0, 255, ${0.25 + Math.random() * 0.5})`;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    if (miniMouse) {
+      const ctx = miniMouse.getContext('2d');
+      frameCanvas(ctx, miniMouse);
+      ctx.fillStyle = '#111';
+      ctx.font = '12px monospace';
+      ctx.fillText('Move pointer in this box', 10, 16);
+
+      miniMouse.addEventListener('mousemove', (event) => {
+        const rect = miniMouse.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        frameCanvas(ctx, miniMouse);
+        ctx.fillStyle = '#111';
+        ctx.font = '12px monospace';
+        ctx.fillText(`mouseX: ${Math.round(x)}  mouseY: ${Math.round(y)}`, 10, 16);
+        ctx.fillStyle = '#0000ff';
+        ctx.beginPath();
+        ctx.arc(x, y, 12, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    if (visualA && visualB) {
+      const ctxA = visualA.getContext('2d');
+      const ctxB = visualB.getContext('2d');
+      const ctxMove = miniMove ? miniMove.getContext('2d') : null;
+      let t = 0;
+
+      function drawVisuals() {
+        t += 0.04;
+
+        frameCanvas(ctxA, visualA);
+        const bounceX = 20 + (t * 80 % (visualA.width - 40));
+        const bounceY = 80 + Math.sin(t * 2) * 40;
+        ctxA.fillStyle = '#0000ff';
+        ctxA.beginPath();
+        ctxA.arc(bounceX, bounceY, 16, 0, Math.PI * 2);
+        ctxA.fill();
+
+        frameCanvas(ctxB, visualB);
+        const cx = visualB.width / 2;
+        const cy = visualB.height / 2;
+        const orbitX = cx + Math.cos(t) * 52;
+        const orbitY = cy + Math.sin(t) * 34;
+        ctxB.strokeStyle = '#9aa3ff';
+        ctxB.beginPath();
+        ctxB.ellipse(cx, cy, 52, 34, 0, 0, Math.PI * 2);
+        ctxB.stroke();
+        ctxB.fillStyle = '#0000ff';
+        ctxB.beginPath();
+        ctxB.arc(orbitX, orbitY, 12, 0, Math.PI * 2);
+        ctxB.fill();
+
+        if (ctxMove && miniMove) {
+          frameCanvas(ctxMove, miniMove);
+          const moveX = 20 + (t * 65 % (miniMove.width - 40));
+          ctxMove.fillStyle = '#111';
+          ctxMove.beginPath();
+          ctxMove.arc(moveX, miniMove.height / 2, 14, 0, Math.PI * 2);
+          ctxMove.fill();
+        }
+
+        requestAnimationFrame(drawVisuals);
+      }
+
+      drawVisuals();
+    }
+  </script>
+</body>
+</html>
