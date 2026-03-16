@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Asset Optimiser - VCA Hashtag Cyberstar</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.45;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+
+    .help-btn {
+      background: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+      width: 2em;
+      height: 2em;
+      font-size: 1em;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .help-btn:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2em;
+    }
+
+    h2 {
+      font-size: 1em;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 1.5em 0 0.5em 0;
+      color: #444;
+    }
+
+    .note {
+      font-size: 0.95em;
+      color: #666;
+      margin-bottom: 1.5em;
+      padding-bottom: 1em;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .drop-zone {
+      border: 2px dashed #111;
+      padding: 3em 2em;
+      text-align: center;
+      color: #666;
+      margin-bottom: 1.5em;
+      cursor: pointer;
+      background: #fafafa;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.05em;
+      transition: all 0.15s;
+    }
+
+    .drop-zone:hover {
+      background: #f0f0f0;
+    }
+
+    .drop-zone.dragover {
+      border-color: #a6e;
+      color: #111;
+      background: #f8f0ff;
+    }
+
+    .preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.5em;
+      padding: 1.5em;
+      background: #fafafa;
+      border-left: 3px solid #a6e;
+    }
+
+    .preview img {
+      max-width: 100%;
+      max-height: 250px;
+      margin-bottom: 0.5em;
+    }
+
+    #imgStats {
+      font-size: 0.85em;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    #cropInstruction {
+      font-size: 0.9em;
+      color: #444;
+      margin: 0.5em 0;
+    }
+
+    .controls {
+      margin-bottom: 1em;
+    }
+
+    label {
+      display: block;
+      margin: 1em 0 0.3em;
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 0.6em 0.8em;
+      border: 1px solid #ccc;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 1em;
+    }
+
+    input[type="number"] {
+      width: 70px;
+    }
+
+    .sizes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      margin-bottom: 1em;
+      padding: 1em;
+      background: #f8f8f8;
+    }
+
+    .sizes label {
+      margin: 0;
+      text-transform: none;
+      font-size: 0.95em;
+      color: #111;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+
+    button {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 0.7em 1.5em;
+      font-size: 0.9em;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: Helvetica, Arial, sans-serif;
+      transition: background 0.15s;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+
+    .crop-controls {
+      margin: 0.8em 0 0 0;
+      display: flex;
+      gap: 0.5em;
+    }
+
+    .crop-controls button {
+      background: #444;
+      font-size: 0.8em;
+      padding: 0.5em 1em;
+    }
+
+    #downloadBtn {
+      background: #a6e;
+      color: #111;
+      margin-top: 1em;
+    }
+
+    #downloadBtn:hover {
+      background: #8c5;
+    }
+
+    #bgRemoveOption,
+    #outlineOption {
+      padding: 0.8em;
+      background: #f8f8f8;
+      margin: 0.5em 0;
+    }
+
+    #bgRemoveOption label,
+    #outlineOption label {
+      text-transform: none;
+      color: #111;
+      margin: 0;
+      display: inline;
+    }
+
+    /* Help overlay */
+    .help-overlay {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+    }
+
+    .help-content {
+      max-width: 450px;
+      margin: 10vh auto;
+      background: #111;
+      padding: 2em;
+      position: relative;
+      border-left: 3px solid #a6e;
+    }
+
+    .help-content h3 {
+      font-size: 1.2em;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 1em 0;
+    }
+
+    .help-content ul {
+      margin: 0;
+      padding-left: 1.2em;
+      line-height: 1.7;
+    }
+
+    .help-content li {
+      margin-bottom: 0.3em;
+    }
+
+    .close-help {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      background: #fff;
+      color: #111;
+      border: none;
+      width: 2em;
+      height: 2em;
+      font-size: 1em;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .close-help:hover {
+      background: #a6e;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 1em;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.4em;
+      }
+
+      .sizes {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="helpOverlay" class="help-overlay">
+    <div class="help-content">
+      <button id="closeHelpBtn" class="close-help">✕</button>
+      <h3>How to use this tool</h3>
+      <ul>
+        <li>Drop or select an image to begin.</li>
+        <li>Crop by dragging on the image, then click <b>Crop</b>.</li>
+        <li>Resize, rename, and download your image.</li>
+        <li>For <b>Cursor</b> images, you can remove the background and add an outline.</li>
+        <li>Use <b>Reset</b> to undo cropping or background removal.</li>
+        <li>The page background will tile with your uploaded image for fun!</li>
+      </ul>
+    </div>
+  </div>
+
+  <header>
+    <h1>Image Asset Optimiser</h1>
+    <button id="helpBtn" class="help-btn" title="Show instructions">?</button>
+  </header>
+
+  <div class="container">
+    <p class="note">Drop an image, crop, resize, rename, and download for your site!</p>
+    <div class="drop-zone" id="dropZone">Drop image here or click to select</div>
+    <input type="file" id="fileInput" accept="image/*" style="display:none">
+    <div class="preview" id="preview" style="display:none">
+      <div id="imgStats"></div>
+      <p id="cropInstruction">Drag to select a crop area on the image, then click <b>Crop</b>. Click <b>Reset</b> to
+        undo.</p>
+      <canvas id="canvas" style="display:none;"></canvas>
+      <div style="position:relative; display:inline-block;">
+        <img id="imgPreview" src="" alt="Preview">
+        <canvas id="cropOverlay" style="position:absolute; left:0; top:0; pointer-events:none;"></canvas>
+      </div>
+      <div class="crop-controls" id="cropControls">
+        <button id="cropBtn" type="button">Crop</button>
+        <button id="resetBtn" type="button">Reset</button>
+      </div>
+    </div>
+    <div class="controls" id="controls" style="display:none;">
+      <h2>Image Title (for filename)</h2>
+      <input type="text" id="titleInput" placeholder="e.g. aboutme">
+      <h2>Choose Size</h2>
+      <div class="sizes">
+        <label><input type="radio" name="size" value="thumb" checked> Thumbnail (200px)</label>
+        <label><input type="radio" name="size" value="cursor"> Cursor (48px)</label>
+        <label><input type="radio" name="size" value="full"> Full (max 1200px)</label>
+        <label><input type="radio" name="size" value="custom"> Custom: <input type="number" id="customSize" min="16"
+            max="2000" value="400" style="width:90px;"></label>
+      </div>
+      <div id="bgRemoveOption" style="display:none;">
+        <label>Remove background colour: <input type="color" id="bgColorPicker" value="#ffffff"></label>
+        <button id="removeBgBtn" type="button">Remove BG</button>
+      </div>
+      <div id="outlineOption" style="display:none;">
+        <label><input type="checkbox" id="outlineCheckbox"> Add outline (for cursor PNG)</label>
+      </div>
+      <button id="downloadBtn">Download</button>
+    </div>
+  </div>
+  <script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+    const imgPreview = document.getElementById('imgPreview');
+    const canvas = document.getElementById('canvas');
+    const cropBtn = document.getElementById('cropBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const controls = document.getElementById('controls');
+    const titleInput = document.getElementById('titleInput');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const customSize = document.getElementById('customSize');
+    let image = null;
+    // Help overlay logic (ensure works on initial page load)
+    window.addEventListener('DOMContentLoaded', () => {
+      const helpBtn = document.getElementById('helpBtn');
+      const helpOverlay = document.getElementById('helpOverlay');
+      const closeHelpBtn = document.getElementById('closeHelpBtn');
+      if (helpBtn && helpOverlay && closeHelpBtn) {
+        helpBtn.addEventListener('click', () => {
+          helpOverlay.style.display = 'block';
+        });
+        closeHelpBtn.addEventListener('click', () => {
+          helpOverlay.style.display = 'none';
+        });
+      }
+    });
+    let crop = null;
+    let cropping = false;
+    let cropStart = null;
+    let cropRect = null;
+    let originalImage = null;
+    const cropOverlay = document.getElementById('cropOverlay');
+
+    // --- Drag and drop ---
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+    dropZone.addEventListener('dragleave', e => {
+      dropZone.classList.remove('dragover');
+    });
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      if (e.dataTransfer.files.length) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+    fileInput.addEventListener('change', e => {
+      if (e.target.files.length) {
+        handleFile(e.target.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      if (!file.type.startsWith('image/')) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        imgPreview.src = e.target.result;
+        imgPreview.style.display = 'block';
+        preview.style.display = 'flex';
+        controls.style.display = 'block';
+        // Always show crop controls when image is loaded
+        document.getElementById('cropControls').style.display = 'flex';
+        image = new window.Image();
+        image.onload = () => {
+          originalImage = document.createElement('canvas');
+          originalImage.width = image.width;
+          originalImage.height = image.height;
+          originalImage.getContext('2d').drawImage(image, 0, 0);
+          resetCrop();
+          // Show original size stats only after image is loaded
+          setTimeout(() => {
+            const statsDiv = document.getElementById('imgStats');
+            const fileSizeKB = (file.size / 1024).toFixed(1);
+            statsDiv.textContent = `Original size: ${image.width} × ${image.height} px, ${(fileSizeKB)} KB`;
+          }, 0);
+          // Set repeating background pattern
+          document.body.style.backgroundImage = `url('${image.src}')`;
+          document.body.style.backgroundRepeat = 'repeat';
+        };
+        image.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function syncOverlayToImage() {
+      // Set overlay canvas size and position to match displayed image
+      const imgRect = imgPreview.getBoundingClientRect();
+      cropOverlay.width = imgRect.width;
+      cropOverlay.height = imgRect.height;
+      cropOverlay.style.width = imgRect.width + 'px';
+      cropOverlay.style.height = imgRect.height + 'px';
+      cropOverlay.style.left = '0px';
+      cropOverlay.style.top = '0px';
+    }
+
+    // --- Cropping ---
+
+    // --- Improved cropping with overlay canvas ---
+    imgPreview.addEventListener('mousedown', e => {
+      if (!image) return;
+      cropping = true;
+      syncOverlayToImage();
+      const rect = cropOverlay.getBoundingClientRect();
+      cropStart = {
+        x: (e.clientX - rect.left),
+        y: (e.clientY - rect.top)
+      };
+      cropRect = null;
+      cropOverlay.style.pointerEvents = 'auto';
+      document.addEventListener('mousemove', cropMouseMoveOverlay);
+      document.addEventListener('mouseup', cropMouseUpOverlay);
+    });
+
+    function cropMouseMoveOverlay(e) {
+      if (!cropping || !image) return;
+      syncOverlayToImage();
+      const rect = cropOverlay.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      x = Math.max(0, Math.min(rect.width, x));
+      y = Math.max(0, Math.min(rect.height, y));
+      let startX = cropStart.x;
+      let startY = cropStart.y;
+      let w = x - startX;
+      let h = y - startY;
+      // If 'Cursor' size is selected, force square aspect ratio
+      const isCursor = document.querySelector('input[name="size"]:checked').value === 'cursor';
+      if (isCursor) {
+        let side = Math.max(Math.abs(w), Math.abs(h));
+        w = w < 0 ? -side : side;
+        h = h < 0 ? -side : side;
+      }
+      cropRect = {
+        x: w < 0 ? startX + w : startX,
+        y: h < 0 ? startY + h : startY,
+        w: Math.abs(w),
+        h: Math.abs(h)
+      };
+      drawCropRectOverlay();
+    }
+
+    function cropMouseUpOverlay(e) {
+      cropping = false;
+      cropOverlay.style.pointerEvents = 'none';
+      document.removeEventListener('mousemove', cropMouseMoveOverlay);
+      document.removeEventListener('mouseup', cropMouseUpOverlay);
+    }
+
+    function drawCropRectOverlay() {
+      const ctx = cropOverlay.getContext('2d');
+      ctx.clearRect(0, 0, cropOverlay.width, cropOverlay.height);
+      if (!cropRect) return;
+      ctx.save();
+      ctx.strokeStyle = '#39ff14';
+      ctx.lineWidth = 4;
+      ctx.setLineDash([8, 4]);
+      ctx.shadowColor = '#39ff14';
+      ctx.shadowBlur = 8;
+      ctx.strokeRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
+      ctx.restore();
+      ctx.save();
+      ctx.globalAlpha = 0.15;
+      ctx.fillStyle = '#39ff14';
+      ctx.fillRect(cropRect.x, cropRect.y, cropRect.w, cropRect.h);
+      ctx.restore();
+    }
+
+    cropBtn.addEventListener('click', () => {
+      if (!cropRect || !image) return;
+      // Map overlay cropRect to image coordinates
+      const imgRect = imgPreview.getBoundingClientRect();
+      const scaleX = image.width / imgRect.width;
+      const scaleY = image.height / imgRect.height;
+      const sx = Math.round(cropRect.x * scaleX);
+      const sy = Math.round(cropRect.y * scaleY);
+      const sw = Math.round(cropRect.w * scaleX);
+      const sh = Math.round(cropRect.h * scaleY);
+      const ctx = canvas.getContext('2d');
+      canvas.width = sw;
+      canvas.height = sh;
+      ctx.drawImage(image, sx, sy, sw, sh, 0, 0, sw, sh);
+      image = new window.Image();
+      image.onload = () => {
+        imgPreview.src = canvas.toDataURL();
+        cropRect = null;
+        drawCropRectOverlay();
+      };
+      image.src = canvas.toDataURL();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      resetCrop();
+    });
+
+    function resetCrop() {
+      if (!originalImage) return;
+      image = new window.Image();
+      image.onload = () => {
+        imgPreview.src = image.src;
+        cropRect = null;
+        drawCropRectOverlay();
+      };
+      image.src = originalImage.toDataURL();
+    }
+
+    // --- Download ---
+    downloadBtn.addEventListener('click', () => {
+      if (!image) return;
+      let size = getSelectedSize();
+      let w = image.width;
+      let h = image.height;
+      if (size < w) {
+        h = Math.round(h * (size / w));
+        w = size;
+      }
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(image, 0, 0, w, h);
+
+      // --- Sharpening filter (unsharp mask) ---
+      try {
+        const imageData = ctx.getImageData(0, 0, w, h);
+        const sharpened = unsharpMask(imageData, w, h, 0.25, 1.0, 0);
+        ctx.putImageData(sharpened, 0, 0);
+      } catch (e) {
+        // If getImageData fails (tainted canvas), skip sharpening
+      }
+
+      let title = titleInput.value.trim() || 'image';
+      let sizeLabel = getSizeLabel();
+      const isCursor = document.querySelector('input[name="size"]:checked').value === 'cursor';
+      let filename = `${title}_${sizeLabel}.${isCursor ? 'png' : 'jpg'}`;
+
+      // If cursor, optionally add outline and export as PNG
+      if (isCursor) {
+        if (document.getElementById('outlineCheckbox').checked) {
+          // Draw outline (black, 2px inside and outside)
+          ctx.save();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#000';
+          ctx.globalAlpha = 0.8;
+          ctx.strokeRect(1, 1, w - 2, h - 2);
+          ctx.restore();
+        }
+        canvas.toBlob(blob => {
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = filename;
+          a.click();
+        }, 'image/png');
+      } else {
+        canvas.toBlob(blob => {
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = filename;
+          a.click();
+        }, 'image/jpeg', 0.92);
+      }
+    });
+    // Show/hide outline option for cursor
+    const outlineOption = document.getElementById('outlineOption');
+    document.querySelectorAll('input[name="size"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const isCursor = document.querySelector('input[name="size"]:checked').value === 'cursor';
+        outlineOption.style.display = isCursor ? 'block' : 'none';
+        bgRemoveOption.style.display = isCursor ? 'block' : 'none';
+      });
+    });
+
+    // Remove background logic
+    removeBgBtn.addEventListener('click', () => {
+      if (!image) return;
+      // Draw image to canvas at current size
+      let w = image.width;
+      let h = image.height;
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(image, 0, 0, w, h);
+      // Get color to remove
+      const hex = bgColorPicker.value;
+      const rgb = hexToRgb(hex);
+      const tolerance = 32; // adjustable: how close to match
+      const imgData = ctx.getImageData(0, 0, w, h);
+      for (let i = 0; i < imgData.data.length; i += 4) {
+        const r = imgData.data[i];
+        const g = imgData.data[i + 1];
+        const b = imgData.data[i + 2];
+        if (colorDistance(r, g, b, rgb.r, rgb.g, rgb.b) < tolerance) {
+          imgData.data[i + 3] = 0; // transparent
+        }
+      }
+      ctx.putImageData(imgData, 0, 0);
+      // Update preview and image
+      image = new window.Image();
+      image.onload = () => {
+        imgPreview.src = canvas.toDataURL();
+      };
+      image.src = canvas.toDataURL();
+    });
+
+    function hexToRgb(hex) {
+      // Remove #
+      hex = hex.replace('#', '');
+      let bigint = parseInt(hex, 16);
+      let r = (bigint >> 16) & 255;
+      let g = (bigint >> 8) & 255;
+      let b = bigint & 255;
+      return { r, g, b };
+    }
+    function colorDistance(r1, g1, b1, r2, g2, b2) {
+      return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
+    }
+
+    // Unsharp mask filter for sharpening
+    // amount: 0.0-1.0, radius: 0.5-2.0, threshold: 0-255
+    function unsharpMask(imageData, width, height, amount, radius, threshold) {
+      // Simple 3x3 kernel for edge enhancement
+      const src = imageData.data;
+      const dst = new Uint8ClampedArray(src.length);
+      const kernel = [
+        0, -1, 0,
+        -1, 5, -1,
+        0, -1, 0
+      ];
+      for (let y = 1; y < height - 1; y++) {
+        for (let x = 1; x < width - 1; x++) {
+          for (let c = 0; c < 3; c++) {
+            let i = (y * width + x) * 4 + c;
+            let sum = 0;
+            let k = 0;
+            for (let ky = -1; ky <= 1; ky++) {
+              for (let kx = -1; kx <= 1; kx++) {
+                let ni = ((y + ky) * width + (x + kx)) * 4 + c;
+                sum += src[ni] * kernel[k++];
+              }
+            }
+            // Unsharp mask: blend original and sharpened
+            let val = src[i] * (1 - amount) + sum * amount;
+            dst[i] = Math.max(0, Math.min(255, val));
+          }
+          // Copy alpha
+          dst[(y * width + x) * 4 + 3] = src[(y * width + x) * 4 + 3];
+        }
+      }
+      // Copy border pixels unchanged
+      for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+          if (y === 0 || y === height - 1 || x === 0 || x === width - 1) {
+            let i = (y * width + x) * 4;
+            dst[i] = src[i];
+            dst[i + 1] = src[i + 1];
+            dst[i + 2] = src[i + 2];
+            dst[i + 3] = src[i + 3];
+          }
+        }
+      }
+      const out = new ImageData(dst, width, height);
+      return out;
+    }
+
+    function getSelectedSize() {
+      const val = document.querySelector('input[name="size"]:checked').value;
+      if (val === 'thumb') return 200;
+      if (val === 'cursor') return 48;
+      if (val === 'full') return Math.min(1800, image.width);
+      if (val === 'custom') return Math.max(16, Math.min(2000, parseInt(customSize.value) || 400));
+      return image.width;
+    }
+    function getSizeLabel() {
+      const val = document.querySelector('input[name="size"]:checked').value;
+      if (val === 'thumb') return 'thumbnail';
+      if (val === 'cursor') return 'cursor';
+      if (val === 'full') return 'full';
+      if (val === 'custom') return `${getSelectedSize()}px`;
+      return 'image';
+    }
+    // --- Enable/disable download button ---
+    titleInput.addEventListener('input', () => {
+      downloadBtn.disabled = !image;
+    });
+    // --- Custom size input enable ---
+    document.querySelectorAll('input[name="size"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        customSize.disabled = document.querySelector('input[name="size"]:checked').value !== 'custom';
+      });
+    });
+    customSize.disabled = true;
+  </script>
+</body>
+
+</html>
