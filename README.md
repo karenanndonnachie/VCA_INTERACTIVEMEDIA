@@ -7,7 +7,8 @@ VCA Interactive media 2026~><br/>
 ### ... & CSS
 [Easy snippets](easy_CSS_snippets.html)
 [See Easy Snippets as web page](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/easy_CSS_snippets.html)
-
+### IMAGE GALLERIES
+[Image Gallery Cheatsheet](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/CHEATSHEETS/image_asset_optimiser.html)
 ## Weeks 3~5 CREATIVE CODING
 ### WWW + P5js (Javascript)
 [P5js SNIPPETS | CODE | DEMOS](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/p5/)
