@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .welcome-txt {
+            font-size: 36px;
+        font-family:'Courier New', Courier, monospace;
+    }
+    </style>
+</head>
+<body>
+    <div id="welcomeType" class="welcome-txt">
+        This is what i want to write right here
+    </div>
+<script>
+var data = [
+{
+welcomeType:
+"<span>This is our world now... the world of the electron and the switch, the beauty of the baud.  We make use of a service already existing without paying for what could be dirt-cheap if it wasn't run by profiteering gluttons, and you call us criminals.  We explore... and you call us criminals.  We seek after knowledge... and you call us criminals.  We exist without skin color, without nationality, without religious bias... and you call us criminals. You build atomic bombs, you wage wars, you murder, cheat, and lie to us and try to make us believe it's for our own good, yet we're the criminals. Yes, I am a criminal.  My crime is that of curiosity.  My crime is that of judging people by what they say and think, not what they look like. My crime is that of outsmarting you, something that you will never forgive me for.I am a hacker, and this is my manifesto.  You may stop this individual, but you can't stop us all... after all, we're all alike.~~Hackers' Manifesto, 1986.</span><br/>",
+},
+];
+
+var allElements = document.getElementsByClassName("welcome-txt");
+for (var j = 0; j < allElements.length; j++) {
+var currentElementId = allElements[j].id;
+var currentElementIdContent = data[0][currentElementId];
+var element = document.getElementById(currentElementId);
+var devTypeText = currentElementIdContent;
+
+// type code
+var i = 0,
+isTag,
+text;
+(function type() {
+text = devTypeText.slice(0, ++i);
+if (text === devTypeText) return;
+element.innerHTML = text + `<span class='blinker'>&#32;</span>`;
+var char = text.slice(-1);
+if (char === "<") isTag = true;
+if (char === ">") isTag = false;
+if (isTag) return type();
+setTimeout(type, 50);
+})();
+}
+</script> 
+
+</body>
+</html>
