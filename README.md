@@ -5,8 +5,10 @@ VCA Interactive media 2026~><br/>
 ### HTML 
 [SHINY NEW HTML CHEATSHEET!](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/CHEATSHEETS/html_cheatsheet.html)
 ### ... & CSS
-[Easy snippets](easy_CSS_snippets.html)
-[See Easy Snippets as web page](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/easy_CSS_snippets.html)
+[Easy snippets](easy_CSS_snippets.html)<br/>
+[See Easy Snippets as web page](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/easy_CSS_snippets.html)<br/>
+& <br/>
+[Typewriter effect](typewriter.html)
 ### IMAGES & GALLERIES...
 [Image Asset Optimiser Tool](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/CHEATSHEETS/image_asset_optimiser.html)<br/>
 [Image Gallery Builder](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/CHEATSHEETS/gallery_builder.html)<br/>
