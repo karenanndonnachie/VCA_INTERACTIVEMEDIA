@@ -15,6 +15,8 @@ this sketch gets the color value of underlying picture and draws small and large
 
 ## [TEXT-TO-POINTS](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/text-to-points/)
 ![chrome-capture-2025-4-3 (1)](https://github.com/user-attachments/assets/7355f987-bab4-4bba-aea4-79aefcce1e0b)
+# 
+![chrome-capture-2026-04-08](https://github.com/user-attachments/assets/37baa2d0-3e43-403e-81bc-a36cdce51755)
 
 ## [Face-Tracking & Sentiment Analysis](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_MEDIA_2025_FACETRACK/)
 This sketch will decipher expressions from your web-cam <br/><br>
@@ -31,6 +33,8 @@ this sketch introduces the microphone as audio input, a sound analysis (bass, mi
 ## [Text responding to sound](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_MEDIA_TEXTSOUND/)
 
 ## [Sound Viz in circle with FFT sound analysis](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/mic_FFT_circle/)
+# 
+<img width="800" alt="Screenshot 2026-04-08 at 7 31 07 pm" src="https://github.com/user-attachments/assets/129747c0-8945-44e6-b6cf-9fb0e6b85bc2" />
 
 ## [Doodle draw (also with 'save' and 'clear' functions)](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/doodle/)
 
