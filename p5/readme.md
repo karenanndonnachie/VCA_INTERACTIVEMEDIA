@@ -21,6 +21,9 @@ this sketch gets the color value of underlying picture and draws small and large
 ## [Face-Tracking & Sentiment Analysis](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/INT_MEDIA_2025_FACETRACK/)
 This sketch will decipher expressions from your web-cam <br/><br>
 
+## [Mouse Coordinates to sound control (musical instruments in the browser)](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/SIMPLE_SOUND_MACHINE)
+This sketch uses your mouseX and mouseY to play sound, changing the pitch as you go.
+
 ## [Mic_FFT_circleViz](https://karenanndonnachie.github.io/VCA_INTERACTIVEMEDIA/p5/mic_FFT_circle/index.html)
 this sketch introduces the microphone as audio input, a sound analysis (bass, mid, treble) and a circular visual representation of the sound as it comes in through the mic.
 
