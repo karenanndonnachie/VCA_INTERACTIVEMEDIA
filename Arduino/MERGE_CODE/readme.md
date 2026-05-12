@@ -218,3 +218,5 @@ function draw() {
   fill(random(255), random(255), random(255));
   circle (random(width), random(height), random(120));
 }</pre></td></tr></table>
+# AND you should get something like this:
+<img width="500" height="266" alt="chrome-capture-2026-05-12 (2)" src="https://github.com/user-attachments/assets/4d44b636-96b7-4d38-b5a9-7d6fbc62f013" />
