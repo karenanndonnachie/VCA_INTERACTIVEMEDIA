@@ -8,6 +8,8 @@ although you may add your own context (what you have changed and how)
 The version of p5 (linked in the libraries directory) is *p5.js v1.9.2 March 19, 2024*<br/>
 Additionally many files using sound / mic etc. will require the p5.sound.js library, also in the libraries directory.
 
+## If you are looking to MERGE two sketches together check [this readme.md](../Arduino/MERGE_CODE)
+
 ## [KUSAMA POLKA PARTY](https://github.com/karenanndonnachie/VCA_INTERACTIVEMEDIA/tree/main/p5/INT_MEDIA_WK4_2025_polkaParty)
 ![chrome-capture-2025-3-28](https://github.com/user-attachments/assets/733e68ac-bf96-4d13-9583-776cbd720a00)
 
